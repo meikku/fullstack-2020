@@ -1,9 +1,9 @@
-##PART 0
+## PART 0
 A General info
 B Fundamentals of Web apps
     ex. 0.1.-0.6.
 
-##PART 1
+## PART 1
 A Introduction to React
     1.1.-1.2.
 B JavaScript
@@ -12,7 +12,7 @@ C Component state, event handlers
 D A more complex state, debugging React apps
     1.6.-1.14.
 
-##PART 2
+## PART 2
 A Rendering a collection, modules
     2.1.-2.5
 B Forms
@@ -24,7 +24,7 @@ D Altering data in server
 E Adding styles to React app
     2.19.-2.20.
 
-##PART 3 
+## PART 3 
 A Node .js and Express
     3.7.-3.8.
 B Deploying app to internet
@@ -37,7 +37,7 @@ D Validation and ESLint
     3.19.-3.21.
     3.22.
 
-##PART 4
+## PART 4
 A Structure of backend application, introduction to testing
     4.1.-4.2.
     4.3.-4.7.
@@ -48,7 +48,7 @@ C User administration
 D Token authentication
     4.15.-4.22.
 
-##PART 5 
+## PART 5 
 A Login in frontend
     5.1.-5.4.
 B props.children and proptypes
@@ -59,7 +59,7 @@ C Testing React apps
 D End to end -testing
     5.17.-5.22.
 
-##PART 6 
+## PART 6 
 A Flux-architecture and Redux
     6.1.-6.2.
     6.3.-6.8.
@@ -71,7 +71,7 @@ C Communicating with server in a redux application
 D connect
     6.19.-6.21.
 
-##PART 7
+## PART 7
 A React-router
     7.1.-7.3.
 B Custom hooks
@@ -82,7 +82,7 @@ E Class components, Miscellaneous
 F Exercises: extending the bloglist
     7.9.-7.21.
 
-##PART 8
+## PART 8
 A GraphQL-server
     8.1.-8.7.
 B React and GraphQL
@@ -94,7 +94,7 @@ D Login and updating the cache
 E Fragments and subscriptions 
     8.23.-8.26.
 
-##PART 9
+## PART 9
 A Backgroun and introduction
 B First steps with Typescript
     9.1.-9.3.
@@ -111,7 +111,7 @@ D React with types
     9.19.-9.22.
     9.23.-9.27.
 
-##PART 10
+## PART 10
 A Introduction to React Native
     10.1.
     10.2.
