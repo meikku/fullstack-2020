@@ -6,13 +6,13 @@ const App = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  
-  const handleGoodClick = () => {
-    const newClicks = {
-      
-    }
-  }
+  const all = good + bad + neutral
+  const average = 1 * (good - bad)/all
+  const positive = 1 * good / all
 
+
+  const [count, setCount] = useState(0)
+  
   return (
     <div>
       <h1>Please give us your feedback!</h1>
@@ -29,10 +29,12 @@ const App = () => {
       <p>good: {good}</p>
       <p>neutral: {neutral}</p>
       <p>bad: {bad}</p>
+      <p>all: {all} </p>
+      <p>average: {average} </p>
+      <p>positive {positive}%</p>
     </div>
   )
   }
-
 ReactDOM.render(<App />, 
   document.getElementById('root')
 )
