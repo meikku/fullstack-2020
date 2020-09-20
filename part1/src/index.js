@@ -1,66 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 const App = () => {
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of a component',
-        exercises: 14
-      }
-    ]
+  // save clicks of each button to own state
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+  
+  const handleGoodClick = () => {
+    const newClicks = {
+      
+    }
   }
 
   return (
     <div>
-      <Header course={course.name}/>
-      <Content parts={course.parts}/>
-      <Total parts={course.parts}/>
+      <h1>Please give us your feedback!</h1>
+      <button onClick = {() => setGood(good + 1)}>
+        good
+      </button>
+      <button onClick = {() => setNeutral(neutral + 1)}>
+        neutral
+      </button>
+      <button onClick = {() => setBad(bad + 1)}>
+        bad
+      </button>     
+      <h1>statistics:</h1>
+      <p>good: {good}</p>
+      <p>neutral: {neutral}</p>
+      <p>bad: {bad}</p>
     </div>
   )
-}
-const Header = (props) => {
-  return (
-    <div>
-      <h1>{props.course}</h1>
-    </div>
-  )
-}
-const Content = (props) => {
-  console.log(props)
-  return (
-    <div>
-      <Part name={props.parts[0].name} exercises={props.parts[0].exercises} />
-      <Part name={props.parts[1].name} exercises={props.parts[1].exercises} />
-      <Part name={props.parts[2].name} exercises={props.parts[2].exercises} />
-    </div>
-  )
-}
-const Part = (props) => {
-  console.log(props)
-  return (
-    <div>
-     {props.name} {props.exercises}
-    </div>
-  )
-}
-const Total = (props) => {
-  console.log(props)
-  return (
-    <div>
-        <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
-    </div>
-  )
-}
+  }
 
-
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, 
+  document.getElementById('root')
+)
