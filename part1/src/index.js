@@ -9,15 +9,12 @@ const App = () => {
   const exercises2 = 7
   const part3 = 'State of a component'
   const exercises3 = 14
-  
-
+  const total = exercises1 + exercises2 + exercises3
   return (
     <div>
-      <Header course={course}/> 
-      <Content part1={part1} exercises1={exercises1}/>
-      <Content part2={part2} exercises2={exercises2}/>
-      <Content part3={part3} exercises3={exercises3}/>
-      <Total total={exercises1 + exercises2 + exercises3}/>
+      <Header course={course}/>
+      <Content part1 = {part1} exercises1={exercises1} part2={part2} exercises2={exercises2} part3={part3} exercises3={exercises3} />
+      <Total total={total}/>
     </div>
   )
 }
@@ -46,9 +43,11 @@ const Content = (props) => {
 const Total = (props) => {
   return (
     <div>
-      <p>Number of exercises {props.total}</p>
+        <p>Number of exercises {props.total}</p>
     </div>
   )
 }
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'))
