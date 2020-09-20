@@ -5,9 +5,9 @@
 
 ## PART 1
 #### A Introduction to React
-    1.1.-1.2.
+    ~~*1.1.-1.2.*~~ 
 #### B JavaScript
-    1.3.-1.5.
+    ~~*1.3.-1.5.*~~ 
 #### C Component state, event handlers
 #### D A more complex state, debugging React apps
     1.6.-1.14.
