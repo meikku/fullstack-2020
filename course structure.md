@@ -10,7 +10,7 @@
 >~~1.3.-1.5.~~ / done
 ##### C Component state, event handlers
 ##### D A more complex state, debugging React apps
->1.6.-1.14.
+>1.6.-1.14. -> continue from 1.8 <-
 
 ### PART 2
 ##### A Rendering a collection, modules
