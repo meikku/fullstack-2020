@@ -5,7 +5,7 @@ const App = (props) => {
   const [selected, setSelected] = useState(0)
   const handleClick = () => {
     console.log('setting Selected')
-    setSelected(2)
+    setSelected(Math.random())
     console.log(selected)
   }
 
