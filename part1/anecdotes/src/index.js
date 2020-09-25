@@ -4,15 +4,29 @@ import ReactDOM from 'react-dom'
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-  const handleClick = () => {
-    console.log('setting Selected')
-    setSelected(Math.random())
-    console.log(selected)
+  const [votes, setVotes] = useState(new Array (anecdotes.length).fill(0))
+
+  
+  const handleAnecdoteClick = () => {
+    console.log('clicking for an anecdote')
+   setSelected(Math.floor((Math.random() * 6)))
+  }
+  const handleVoteClick = () => {
+      const copy = [...votes]
+      copy[selected] += 1
+      setVotes(copy)
+      console.log('selected is ', selected)
+      console.log('votes[selected] is', votes[selected])
   }
 
   return (
     <div>
-      <button onClick={props.anecdotes[selected]}>button</button>
+      <div>
+        {props.anecdotes[selected]}
+      </div>
+      <div>has {votes[selected]} votes</div>
+      <button onClick = {handleVoteClick}>vote</button>
+      <button onClick={handleAnecdoteClick}>next anecdote</button> 
     </div>
   )
 }
@@ -25,6 +39,7 @@ const anecdotes = [
   'Premature optimization is the root of all evil.',
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
 ]
+
 
 ReactDOM.render(
   <App anecdotes={anecdotes} />,
