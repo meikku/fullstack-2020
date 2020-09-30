@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const App = () => {
+  
   const course = {
     id: 1,
     name: 'Half Stack application development',
@@ -29,11 +30,16 @@ const App = () => {
 
 const Course = ( {course}) => {
 
+  const total = course.parts.reduce((sum, part) => {
+    return sum + part.exercises
+   }, 0)
+   
+
 return (
     <div>
       <Header course={course.name}/>
       <Content parts={course.parts}/>
-      {/* <Total parts={course.parts}/> */}
+      <h4>Total of {total} exercises</h4>
     </div>
   ) 
 }
@@ -64,14 +70,7 @@ const Part = ({ part }) => {
     </li>
   )
 }
-// const Total = (props) => {
-//   console.log(props)
-//   return (
-//     <div>
-//         <p>Number of exercises {props.parts[0].exercises + props.parts[1].exercises + props.parts[2].exercises}</p>
-//     </div>
-//   )
-// }
 
 
+     
 ReactDOM.render(<App />, document.getElementById('root'))
