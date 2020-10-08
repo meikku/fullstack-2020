@@ -49,11 +49,11 @@ const courses = [
 
 return (
   <div>
-    <ul>
       <h2>Web development curriculum</h2>
-      {courses.map(course => 
-      <Course key={course.id}
-      course={course}/>
+      <ul>
+        {courses.map(course => 
+        <Course key={course.id}
+        course={course}/>
       )}
     </ul>
   </div>
