@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const App = () => {
-  console.log('appi toimii');
 const courses = [
   {
     name: 'Half Stack application development',
@@ -63,7 +62,6 @@ return (
 
 
 const Course = ( {course}) => {
-  console.log('Course toimii')
 return (
     <div>
       <Header course={course.name}/>
@@ -74,7 +72,6 @@ return (
 }
 
 const Total = ( {parts}) => {
-  console.log('Total toimii')
   const total = parts.reduce((sum, part) => {
     return sum + part.exercises
    }, 0)
@@ -87,20 +84,15 @@ const Total = ( {parts}) => {
 
 
 const Header = ( {course}) => {
-  console.log('Header toimii')
   return (
     <div> 
     <h3>
       {course}
     </h3>
   </div> 
-    // <div>
-    //   <h1>{courses}</h1>
-    // </div>
   )
 }
 const Content = ( {parts}) => {
-console.log('Content toimii')
   return (
     <div> 
       <ul>
