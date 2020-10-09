@@ -21,15 +21,13 @@ const App = () => {
     {
       setPersons(persons.concat(nameObject))
       setNewName('')
-    
-    }
-     
+    } 
   }
 
   const handleNameChange = (event) => {
     event.preventDefault()
       console.log(event.target.value)
-      setNewName(event.target.value)
+      setNewName(event.target.value)  
   }
 
   return (
