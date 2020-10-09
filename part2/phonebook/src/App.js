@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  const [ persons, setPersons ] = useState([ { name: ' Arto Hellas '} ]) 
+  const [ persons, setPersons ] = useState([ { id: 'Arto Hellas', name: ' Arto Hellas '} ]) 
   const [ newName, setNewName ] = useState( '')
   
   const addName = (event) => {
@@ -12,9 +12,10 @@ const App = () => {
       name: newName,
       id: newName,
     }
-    if (persons.some(persons => persons.id === newName.id))
+    if (persons.some(person => person.id === newName))
     {
-     window.alert('{newName} is already added to phonebook ')
+     window.alert(` ${newName} is already added to phonebook` )
+     setNewName('')
     }
     else
     {
