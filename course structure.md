@@ -4,9 +4,9 @@
 >~~0.1~~
 >~~0.2~~
 >~~0.3~~
->0.4
->0.5
->0.6
+>~~0.4~~
+>~~0.5~~
+>~~0.6~~
 
 ### PART 1
 ##### A Introduction to React
@@ -30,33 +30,39 @@
 
 ### PART 2
 ##### A Rendering a collection, modules
->2.1
->2.2
->2.3
->2.4
->2.5
+>~~2.1~~
+>~~2.2~~
+>~~2.3*~~
+>~~2.4~~
+>~~2.5~~
 ##### B Forms
->2.6
->2.7
->2.8
->2.9
+>~~2.6~~
+>~~2.7~~
+>~~2.8~~
+>2.9*
 >2.10
 ##### C Getting data from server
 >2.11
->2.12
->2.13
->2.14
+>2.12*
+>2.13*
+>2.14*
 ##### D Altering data in server
 >2.15
 >2.16
 >2.17
->2.18
+>2.18*
 ##### E Adding styles to React app
 >2.19
 >2.20
 
 ### PART 3 
-##### A Node .js and Express
+##### A Node.js and Express
+>3.1
+>3.2
+>3.3
+>3.4
+>3.5
+>3.6
 >3.7
 >3.8
 ##### B Deploying app to internet
@@ -69,8 +75,8 @@
 >3.14
 >3.15
 >3.16
->3.17
->3.18
+>3.17*
+>3.18*
 ##### D Validation and ESLint
 >3.19
 >3.20
