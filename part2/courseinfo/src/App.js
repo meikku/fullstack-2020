@@ -1,7 +1,7 @@
 import React from 'react';
 import Course from './Components/course'
 
-const App = ( { props.courses}) => {
+const App = ( { courses}) => {
 
 
   return (
