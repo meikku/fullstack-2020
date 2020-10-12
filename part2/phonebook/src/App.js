@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
 
 const App = () => {
-  const [ persons, setPersons ] = useState([ { id: 'Arto Hellas', name: 'Arto Hellas', number: '040-1234567'} ]) 
+  const [ persons, setPersons ] = useState([ 
+  { name: 'Arto Hellas', number: '040-123456' },
+  { name: 'Ada Lovelace', number: '39-44-5323523' },
+  { name: 'Dan Abramov', number: '12-43-234345' },
+  { name: 'Mary Poppendieck', number: '39-23-6423122' } ]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
+  const [ showPersons, setShowPersons ] = useState(true)
+  const [ newQuery, setNewQuery ] = useState('')
   
   const addName = (event) => {
     event.preventDefault()
-    
-    
+
     const nameObject = {
       name: newName,
-      id: newName,
       number: newNumber
     }
-    if (persons.some(person => person.id === newName))
+    if (persons.some(person => person.name === newName))
     {
      window.alert(` ${newName} is already added to phonebook` )
      setNewName('')
+     setNewNumber('')
     }
     else
     {
@@ -37,11 +42,27 @@ const App = () => {
     console.log(event.target.value)
     setNewNumber(event.target.value)
   }
+  const handleQuery = (event) => {
+    setNewQuery(event.target.value)
+  }
+  const addNewQuery = (event) => {
+    setShowPersons
+  }
+  
+  const personsToShow = showPersons
+  ? persons
+  : persons.filter(person => person.name === query)
 
   return (
     <div>
       <h2>Phonebook</h2>
+      <form onSubmit={addNewQuery}>
+          filter shown with <input value={newQuery}
+          onChange={handleQuery}>
+          </input>
+      </form>
      
+      <h2>add a new</h2>
       <form onSubmit={addName}>
         <div>
           name: <input value={newName} 
@@ -54,11 +75,9 @@ const App = () => {
           <button type="submit">add</button>
         </div>
       </form>
-      <div>debug: {newName}
-        </div>
       <h2>Numbers</h2>
       <ul>
-        {persons.map(person =>
+        {personsToShow.map(person =>
           <li key={person.name}>{person.name}{' '}{person.number}</li>
         )}
       </ul>
