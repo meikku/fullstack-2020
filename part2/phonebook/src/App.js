@@ -8,7 +8,6 @@ const App = () => {
   { name: 'Mary Poppendieck', number: '39-23-6423122' } ]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
-  const [ showPersons, setShowPersons ] = useState(true)
   const [ newQuery, setNewQuery ] = useState('')
   
   const addName = (event) => {
@@ -43,22 +42,18 @@ const App = () => {
     setNewNumber(event.target.value)
   }
   const handleQuery = (event) => {
-    setNewQuery(event.target.value)
-  }
-  const addNewQuery = (event) => {
-    setShowPersons
+   setNewQuery(event.target.value)
   }
   
-  const personsToShow = showPersons
+  const personsToShow = !newQuery
   ? persons
-  : persons.filter(person => person.name === query)
+  : persons.filter(person => person.name.toLowerCase().includes(newQuery.toLowerCase()))
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addNewQuery}>
-          filter shown with <input value={newQuery}
-          onChange={handleQuery}>
+      <form>
+          filter shown with <input query="text" onChange={handleQuery}>
           </input>
       </form>
      
