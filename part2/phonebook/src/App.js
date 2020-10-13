@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
+import Persons from './components/Persons'
 
 const App = () => {
   const [ persons, setPersons ] = useState([ 
@@ -10,27 +13,6 @@ const App = () => {
   const [ newNumber, setNewNumber ] = useState('')
   const [ newQuery, setNewQuery ] = useState('')
   
-  const addName = (event) => {
-    event.preventDefault()
-
-    const nameObject = {
-      name: newName,
-      number: newNumber
-    }
-    if (persons.some(person => person.name === newName))
-    {
-     window.alert(` ${newName} is already added to phonebook` )
-     setNewName('')
-     setNewNumber('')
-    }
-    else
-    {
-      setPersons(persons.concat(nameObject))
-      setNewName('')
-      setNewNumber('')
-    } 
-  }
-
   const handleNameChange = (event) => {
     event.preventDefault()
       console.log(event.target.value)
@@ -45,38 +27,15 @@ const App = () => {
    setNewQuery(event.target.value)
   }
   
-  const personsToShow = !newQuery
-  ? persons
-  : persons.filter(person => person.name.toLowerCase().includes(newQuery.toLowerCase()))
-
+  
   return (
     <div>
-      <h2>Phonebook</h2>
-      <form>
-          filter shown with <input query="text" onChange={handleQuery}>
-          </input>
-      </form>
-     
-      <h2>add a new</h2>
-      <form onSubmit={addName}>
-        <div>
-          name: <input value={newName} 
-          onChange={handleNameChange}/>
-        </div>
-        <div>number: <input value={newNumber}
-          onChange={handleNumberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      <ul>
-        {personsToShow.map(person =>
-          <li key={person.name}>{person.name}{' '}{person.number}</li>
-        )}
-      </ul>
-    
+      <h3>Phonebook</h3>
+      <Filter   handleQuery={handleQuery}/>
+      <h3>add a new</h3>
+      <PersonForm setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons} newName={newName} newNumber={newNumber} persons={persons} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
+      <h3>Numbers </h3>
+      <Persons persons={persons} newQuery={newQuery} />
     </div>
   )
 }
