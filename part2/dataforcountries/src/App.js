@@ -27,11 +27,11 @@ const App = () => {
         find countries <input country="text" onChange={handleSearch}>
         </input>
       </form>
-     <Countries countries={countries} search={search}/>
+     <Countries countries={countries} search={search} setSearch={setSearch}/>
     </div>
   );
 }
-const Countries = ({ search, countries}) => {
+const Countries = ({ setSearch, search, countries}) => {
   const countriesToShow = 
     countries.filter(country => country.name.toLowerCase().includes(search.toLowerCase()))
     console.log('countries.length', countriesToShow.length)
@@ -56,44 +56,46 @@ const Countries = ({ search, countries}) => {
       )
 
       else
+    
       return (
         <div>
           <ul>
             {countriesToShow.map(country => 
             <li key={country.alpha2Code}>
-              <h3>{country.name}</h3>
-              </li>
-          )}
+             {country.name}
+             <button onClick={() => setSearch(country.name)}>
+               show
+              </button>
+            </li>
+              )}
           </ul>
-          </div>
-          )   
+        </div>
+      )   
 } 
 
-const SingleCountry = ( {country, flag }) => {
+
+const SingleCountry = ( {country }) => {
   
  return (
    <div>
-
-  
-   <ul>
-     <h2>{country.name}</h2>
-     <p>
-     capital {country.capital}
-     </p>
-     <p>
-     population {country.population} 
-     </p>
-     <h4>languages</h4>
      <ul>
-        {country.languages.map(language => 
-        <li key={language.iso639_1}>{language.name}</li>
-        )}
-        </ul>
-   </ul>
-   <br></br>
-   <img alt='flag' src={country.flag} width="150" height="100"></img>
-   </div>
- )
+       <h2>{country.name}</h2>
+       <p>capital {country.capital}
+       </p>
+       <p>
+         population {country.population} 
+         </p>
+         <h4>languages</h4>
+         <ul>
+           {country.languages.map(language => 
+           <li key={language.iso639_1}>{language.name}</li>
+           )}
+           </ul>
+           </ul>
+           <br></br>
+           <img alt='flag' src={country.flag} width="150" height="100"></img>
+           </div>
+           )
 }
 
 
