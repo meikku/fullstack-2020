@@ -42,22 +42,22 @@
 >2.9*~~
 >2.10~~
 ##### C Getting data from server
->2.11
->2.12*
->2.13*
->2.14*
+>~~2.11~~
+>~~2.12*~~
+>~~2.13*~~
+>2.14* / SKIP
 ##### D Altering data in server
->2.15
+>2.15 (2.15-2.18 Phonebook)
 >2.16
 >2.17
 >2.18*
 ##### E Adding styles to React app
->2.19
+>2.19 (2.19-2.20 Phonebook)
 >2.20
 
 ### PART 3 
 ##### A Node.js and Express
->3.1
+>3.1 (3.1-3.8 Phonebook backend)
 >3.2
 >3.3
 >3.4
@@ -66,22 +66,22 @@
 >3.7
 >3.8
 ##### B Deploying app to internet
->3.9
+>3.9 (3.9-3.10 Phonebook backend) 
 >3.10
->3.11
+>3.11 (Phonebook full stack)
 ##### C Saving data to MongoDB
->3.12
->3.13
+>3.12 (command line database)
+>3.13 (3.13-3.18 Phonebook database)
 >3.14
 >3.15
 >3.16
 >3.17*
 >3.18*
 ##### D Validation and ESLint
->3.19
+>3.19 (3.19-3.20 Phonebook database)
 >3.20
->3.21
->3.22
+>3.21 (Deploying the database backend to production)
+>3.22 (Lint configuration)
 
 ### PART 4
 ##### A Structure of backend application, introduction to testing
