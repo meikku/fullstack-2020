@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import personService from '../services/persons'
 
 const PersonForm = ( {setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
    
@@ -16,19 +16,19 @@ const PersonForm = ( {setNewName, setNewNumber, setPersons, newName, newNumber, 
          setNewName('')
          setNewNumber('')
         }
+        
         else
         {
-          axios
-          .post('http://localhost:3001/persons', nameObject)
-          .then(response => {
-          console.log(response)
+          personService
+          .create(nameObject)
+          .then(returnedNote => {
+            setPersons(persons.concat(returnedNote))
+            setNewName('')
+            setNewNumber('')
           })
-
-          setPersons(persons.concat(nameObject))
-          setNewName('')
-          setNewNumber('')
         } 
       }
+
       return (
         <form onSubmit={addName}>
         <div>
