@@ -4,7 +4,7 @@ import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
 
-const App = () => {
+const App = ( ) => {
   const [ persons, setPersons ] = useState([ ]) 
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
@@ -21,6 +21,7 @@ const App = () => {
   }, [])
   console.log('render', persons.length, 'persons')
 
+  
   const handleNameChange = (event) => {
     event.preventDefault()
       console.log(event.target.value)

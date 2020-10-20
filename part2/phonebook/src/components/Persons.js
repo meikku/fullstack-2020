@@ -7,14 +7,15 @@ const Persons = ( {persons, newQuery} ) => {
   : persons.filter(person => person.name.toLowerCase().includes(newQuery.toLowerCase()))
 
   return (
-    <div>
+    <>
         <ul>
         {personsToShow.map(person =>
-          <li key={person.name}>{person.name}{' '}{person.number}</li>
+        <div> <li key={person.id}>{person.name}{' '}{person.number}
+        </li>
+        </div> 
         )}
       </ul>
-    
-    </div>
+    </>
   )
 }
 
