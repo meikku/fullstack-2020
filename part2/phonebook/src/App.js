@@ -19,16 +19,12 @@ const App = ( ) => {
   }, [])
 
   
-
-  
   const handleNameChange = (event) => {
     event.preventDefault()
-      console.log(event.target.value)
       setNewName(event.target.value)  
   }
   const handleNumberChange = (event) => {
     event.preventDefault()
-    console.log(event.target.value)
     setNewNumber(event.target.value)
   }
   const handleQuery = (event) => {
