@@ -9,6 +9,7 @@ const App = ( ) => {
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber ] = useState('')
   const [ newQuery, setNewQuery ] = useState('')
+  const [ personsToShow, setPersonsToShow] = useState('')
   
   useEffect(() => {
     personService
@@ -39,7 +40,7 @@ const App = ( ) => {
       <h3>add a new</h3>
       <PersonForm setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons} newName={newName} newNumber={newNumber} persons={persons} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
       <h3>Numbers </h3>
-      <Persons persons={persons} newQuery={newQuery} setPersons={setPersons}/>
+      <Persons persons={persons} newQuery={newQuery} setPersons={setPersons} personsToShow={personsToShow} setPersonsToShow={setPersonsToShow}/>
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import personService from '../services/persons'
 
-const Persons = ( {persons, setPersons, newQuery} ) => {
+const Persons = ( {persons, setPersons, newQuery, personsToShow, setPersonsToShow} ) => {
   console.log("Persons works")
 
-  const personsToShow = !newQuery
+  personsToShow = !newQuery
   ? persons
   : persons.filter(person => person.name.toLowerCase().includes(newQuery.toLowerCase()))
 
@@ -17,6 +17,7 @@ const Persons = ( {persons, setPersons, newQuery} ) => {
     .remove(id)
     .then(persons => {
       setPersons(Object.values(persons).filter(person => person.id !== id )) 
+      setPersonsToShow(Object.values(persons).filter(person => person.id !== id ))
     })
   }
   return (
