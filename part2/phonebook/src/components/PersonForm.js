@@ -10,12 +10,10 @@ const PersonForm = ( {setNewName, setNewNumber, setPersons, newName, newNumber, 
           name: newName, 
           number: newNumber
         }
-        if (persons.some(person => person.name === newName))
-        {
-         window.alert(` ${newName} is already added to phonebook` )
-         setNewName('')
-         setNewNumber('')
+        if (persons.some(person => person.name === newName)){
+          alterNumber (nameObject, newNumber)
         }
+       
 
         else
         {
@@ -28,7 +26,23 @@ const PersonForm = ( {setNewName, setNewNumber, setPersons, newName, newNumber, 
           })
         } 
       }
-
+  const alterNumber = (nameObject, newNumber) => {
+    console.log("nameObject =", nameObject)
+    console.log("newNumber = ", newNumber)
+        if (window.confirm(` ${newName} is already added to phonebook, replace the old number with a new one?` )) {
+        const personToChange = persons.find(person => person.name === newName)
+        const changedObject = {... personToChange, number: newNumber}
+        personService
+        .alter(personToChange.id, changedObject)
+        .then(returnedPerson => {
+         setPersons(persons.map(person => person.id !== personToChange.id ? person : returnedPerson))
+         setNewName('')
+         setNewNumber('')
+        })
+      }
+      }
+      
+     
       return (
         <form onSubmit={addName}>
         <div>
