@@ -2,7 +2,6 @@ import React from 'react'
 import personService from '../services/persons'
 
 const Persons = ( {persons, setPersons, newQuery, personsToShow, setPersonsToShow} ) => {
-  console.log("Persons works")
 
   personsToShow = !newQuery
   ? persons
