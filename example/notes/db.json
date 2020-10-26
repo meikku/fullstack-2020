@@ -19,46 +19,34 @@
       "important": true
     },
     {
-      "content": " testing",
-      "date": "2020-10-19T07:01:43.359Z",
-      "important": true,
-      "id": 4
-    },
-    {
-      "content": " testing again",
-      "date": "2020-10-19T07:02:34.002Z",
-      "important": true,
-      "id": 5
-    },
-    {
-      "content": "and again",
-      "date": "2020-10-19T07:02:44.779Z",
-      "important": true,
-      "id": 6
-    },
-    {
       "content": "POST is used to add data to a REST api",
       "date": "2020-10-19T07:03:45.533Z",
       "important": false,
       "id": 7
     },
     {
-      "content": " testing",
-      "date": "2020-10-19T07:11:54.061Z",
+      "content": " Testing",
+      "date": "2020-10-26T13:02:03.592Z",
       "important": true,
       "id": 8
     },
     {
-      "content": "This shouldn't show?",
-      "date": "2020-10-19T07:12:55.322Z",
-      "important": false,
+      "content": "Testing",
+      "date": "2020-10-26T13:02:20.304Z",
+      "important": true,
       "id": 9
     },
     {
-      "content": "This shouldn't show?",
-      "date": "2020-10-19T07:12:59.029Z",
-      "important": true,
+      "content": " Once more",
+      "date": "2020-10-26T13:11:59.672Z",
+      "important": false,
       "id": 10
+    },
+    {
+      "content": " Testing",
+      "date": "2020-10-26T13:17:50.806Z",
+      "important": false,
+      "id": 11
     }
   ]
 }
