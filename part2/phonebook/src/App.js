@@ -39,7 +39,7 @@ const App = ( ) => {
       <h3>add a new</h3>
       <PersonForm setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons} newName={newName} newNumber={newNumber} persons={persons} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
       <h3>Numbers </h3>
-      <Persons persons={persons} newQuery={newQuery} />
+      <Persons persons={persons} newQuery={newQuery} setPersons={setPersons}/>
     </div>
   )
 }

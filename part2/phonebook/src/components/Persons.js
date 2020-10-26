@@ -2,29 +2,30 @@ import React from 'react'
 import personService from '../services/persons'
 
 const Persons = ( {persons, setPersons, newQuery} ) => {
+  console.log("Persons works")
 
   const personsToShow = !newQuery
   ? persons
   : persons.filter(person => person.name.toLowerCase().includes(newQuery.toLowerCase()))
 
-  const handleDelete = (id) => {
-
-    const person = persons.find(n => n.id === id)
-
+  const handleDelete = (name, id) => {
+    console.log("name = ", name)
+    console.log("id =", id)
+    if (window.confirm(`Delete '${name}' ?`))
+    
     personService
-    .remove(person.id)
+    .remove(id)
     .then(persons => {
-      setPersons(persons.filter(person => person.id !== id)) 
+      setPersons(Object.values(persons).filter(person => person.id !== id )) 
     })
   }
   return (
     <>
         <ul>
         {personsToShow.map(person =>
-        <div> <li key={person.id}>{person.name}{' '}{person.number}
-<button onClick= {() => handleDelete}>delete</button>
-        </li>
-        </div> 
+        <li key={person.id}>{person.name}{' '}{person.number}
+        <button onClick= {() => handleDelete(person.name, person.id)}>delete</button>
+        </li> 
         )}
       </ul>
     </>
