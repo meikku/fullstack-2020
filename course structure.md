@@ -6,16 +6,18 @@
 >~~0.3~~
 >~~0.4~~
 >~~0.5~~
->~~0.6~~
+>~~0.6~~ 
+
+>TOTAL 6 done 
 
 ### PART 1
 ##### A Introduction to React
 >~~1.1~~
->~~1.2~~ / done
+>~~1.2~~ 
 ##### B JavaScript
 >~~1.3~~
 >~~1.4~~
->~~1.5~~ / done
+>~~1.5~~ 
 ##### C Component state, event handlers
 ##### D A more complex state, debugging React apps
 >~~1.6~~
@@ -26,8 +28,8 @@
 >~~1.11~~
 >~~1.12~~
 >~~1.13~~
->~~1.14~~ / done
-
+>~~1.14~~ 
+>TOTAL 20 done
 ### PART 2
 ##### A Rendering a collection, modules
 >~~2.1~~
@@ -47,10 +49,11 @@
 >~~2.13*~~
 >2.14* / SKIP
 ##### D Altering data in server
->2.15 (2.15-2.18 Phonebook)
->2.16
->2.17
->2.18*
+>~~2.15~~ (2.15-2.18 Phonebook)
+>~~2.16~~
+>~~2.17~~
+>~~2.18*~~
+>TOTAL 37 done
 ##### E Adding styles to React app
 >2.19 (2.19-2.20 Phonebook)
 >2.20
@@ -64,7 +67,7 @@
 >3.5
 >3.6
 >3.7
->3.8
+>3.8*
 ##### B Deploying app to internet
 >3.9 (3.9-3.10 Phonebook backend) 
 >3.10
@@ -79,7 +82,7 @@
 >3.18*
 ##### D Validation and ESLint
 >3.19 (3.19-3.20 Phonebook database)
->3.20
+>3.20*
 >3.21 (Deploying the database backend to production)
 >3.22 (Lint configuration)
 
@@ -243,3 +246,5 @@
 >10.17.-10.18.
 10.19.-10.24.
 10.25.-10.27.
+
+>
