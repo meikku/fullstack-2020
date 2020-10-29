@@ -1,7 +1,7 @@
 import React from 'react'
 import personService from '../services/persons'
 
-const PersonForm = ( { setError, setMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
+const PersonForm = ( {error, setError, setMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
    
   const addName = (event) => {
         event.preventDefault()
@@ -18,6 +18,7 @@ const PersonForm = ( { setError, setMessage, setNewName, setNewNumber, setPerson
           personService
           .create(nameObject)
           .then(returnedPerson => {
+            setError(false)
             setPersons(persons.concat(returnedPerson))
             setMessage(`added '${returnedPerson.name}' `)
             setTimeout(() => {setMessage(null)}, 5000)
@@ -28,6 +29,7 @@ const PersonForm = ( { setError, setMessage, setNewName, setNewNumber, setPerson
       }
 
   const alterNumber = (nameObject, newNumber) => {
+    console.log("error = ", error)
         if (window.confirm(` ${newName} is already added to phonebook, replace the old number with a new one?` )) {
         const personToChange = persons.find(person => person.name === newName)
         const changedObject = {... personToChange, number: newNumber}
@@ -45,7 +47,6 @@ const PersonForm = ( { setError, setMessage, setNewName, setNewNumber, setPerson
           setPersons(persons.filter(person => person.id !== personToChange.id))
           setNewName('')
           setNewNumber('')
-          setError(false)
         })
       }
       }
