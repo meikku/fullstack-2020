@@ -1,8 +1,7 @@
 import React from 'react'
 import personService from '../services/persons'
-import Notification from '../components/Notification'
 
-const PersonForm = ( {errorMessage, setErrorMessage, setInfoMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
+const PersonForm = ( { setError, setMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
    
   const addName = (event) => {
         event.preventDefault()
@@ -14,24 +13,21 @@ const PersonForm = ( {errorMessage, setErrorMessage, setInfoMessage, setNewName,
         if (persons.some(person => person.name === newName)){
           alterNumber (nameObject, newNumber)
         }
-       
-
         else
         {
           personService
           .create(nameObject)
           .then(returnedPerson => {
             setPersons(persons.concat(returnedPerson))
-            setInfoMessage(`added '${returnedPerson.name}' `)
-            setTimeout(() => {setInfoMessage(null)}, 5000)
+            setMessage(`added '${returnedPerson.name}' `)
+            setTimeout(() => {setMessage(null)}, 5000)
             setNewName('')
             setNewNumber('')
           })
         } 
       }
+
   const alterNumber = (nameObject, newNumber) => {
-    console.log("nameObject =", nameObject)
-    console.log("newNumber = ", newNumber)
         if (window.confirm(` ${newName} is already added to phonebook, replace the old number with a new one?` )) {
         const personToChange = persons.find(person => person.name === newName)
         const changedObject = {... personToChange, number: newNumber}
@@ -43,19 +39,19 @@ const PersonForm = ( {errorMessage, setErrorMessage, setInfoMessage, setNewName,
          setNewNumber('')
         })
         .catch(error => {
-          setErrorMessage(`Information of '${newName}' has already been removed from server`)
-          setTimeout(() => {setErrorMessage(null)}, 5000)
+          setError(true)
+          setMessage(`Information of '${newName}' has already been removed from server`)
+          setTimeout(() => {setMessage(null)}, 5000)
           setPersons(persons.filter(person => person.id !== personToChange.id))
           setNewName('')
           setNewNumber('')
+          setError(false)
         })
       }
       }
       
      
       return (
-        <div>
-          <Notification message={errorMessage}/>
            <form onSubmit={addName}>
         <div>
           name: <input value={newName} 
@@ -68,7 +64,6 @@ const PersonForm = ( {errorMessage, setErrorMessage, setInfoMessage, setNewName,
           <button type="submit">add</button>
         </div>
       </form>
-        </div>
       )
     
 }

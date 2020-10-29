@@ -11,8 +11,9 @@ const App = ( ) => {
   const [ newNumber, setNewNumber ] = useState('')
   const [ newQuery, setNewQuery ] = useState('')
   const [ personsToShow, setPersonsToShow] = useState('')
-  const [ infoMessage, setInfoMessage ] = useState(null)
-  const [ errorMessage, setErrorMessage ] = useState(null)
+  const [ message, setMessage ] = useState(null)
+  const [ error, setError] = useState(false)
+
 
   
   useEffect(() => {
@@ -40,10 +41,10 @@ const App = ( ) => {
   return (
     <div>
       <h3>Phonebook</h3>
-      <Notification message={infoMessage}/>
+      <Notification message={message} error={error}/>
       <Filter   handleQuery={handleQuery}/>
       <h3>add a new</h3>
-      <PersonForm errorMessage={errorMessage} setErrorMessage={setErrorMessage} setInfoMessage={setInfoMessage} setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons} newName={newName} newNumber={newNumber} persons={persons} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
+      <PersonForm error={error} setError={setError} message={message} setMessage={setMessage} setNewName={setNewName} setNewNumber={setNewNumber} setPersons={setPersons} newName={newName} newNumber={newNumber} persons={persons} handleNameChange={handleNameChange} handleNumberChange={handleNumberChange}/>
       <h3>Numbers </h3>
       <Persons persons={persons} newQuery={newQuery} setPersons={setPersons} personsToShow={personsToShow} setPersonsToShow={setPersonsToShow}/>
     </div>
