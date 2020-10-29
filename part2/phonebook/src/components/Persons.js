@@ -14,10 +14,8 @@ const Persons = ( {persons, setPersons, newQuery, personsToShow, setPersonsToSho
     
     personService
     .remove(id)
-    .then(persons => {
-      setPersons(Object.values(persons).filter(person => person.id !== id )) 
-      setPersonsToShow(Object.values(persons).filter(person => person.id !== id ))
-    })
+    .then(setPersons(persons.filter(person => person.id !== id ))
+    )
   }
   return (
     <>
