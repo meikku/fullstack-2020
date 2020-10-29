@@ -1,7 +1,7 @@
 import React from 'react'
 import personService from '../services/persons'
 
-const Persons = ( {persons, setPersons, newQuery, personsToShow, setPersonsToShow} ) => {
+const Persons = ( {persons, setPersons, newQuery, personsToShow} ) => {
 
   personsToShow = !newQuery
   ? persons

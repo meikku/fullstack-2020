@@ -1,7 +1,8 @@
 import React from 'react'
 import personService from '../services/persons'
+import Notification from '../components/Notification'
 
-const PersonForm = ( {setInfoMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
+const PersonForm = ( {errorMessage, setErrorMessage, setInfoMessage, setNewName, setNewNumber, setPersons, newName, newNumber, persons, handleNameChange, handleNumberChange}) => {
    
   const addName = (event) => {
         event.preventDefault()
@@ -41,12 +42,21 @@ const PersonForm = ( {setInfoMessage, setNewName, setNewNumber, setPersons, newN
          setNewName('')
          setNewNumber('')
         })
+        .catch(error => {
+          setErrorMessage(`Information of '${newName}' has already been removed from server`)
+          setTimeout(() => {setErrorMessage(null)}, 5000)
+          setPersons(persons.filter(person => person.id !== personToChange.id))
+          setNewName('')
+          setNewNumber('')
+        })
       }
       }
       
      
       return (
-        <form onSubmit={addName}>
+        <div>
+          <Notification message={errorMessage}/>
+           <form onSubmit={addName}>
         <div>
           name: <input value={newName} 
           onChange={handleNameChange}/>
@@ -58,6 +68,7 @@ const PersonForm = ( {setInfoMessage, setNewName, setNewNumber, setPersons, newN
           <button type="submit">add</button>
         </div>
       </form>
+        </div>
       )
     
 }
