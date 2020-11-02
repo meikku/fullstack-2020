@@ -55,8 +55,8 @@
 >~~2.18*~~
 >TOTAL 37 done
 ##### E Adding styles to React app
->2.19 (2.19-2.20 Phonebook)
->2.20
+>~~2.19~~ (2.19-2.20 Phonebook)
+>~~2.20~~
 
 ### PART 3 
 ##### A Node.js and Express
