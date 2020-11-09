@@ -32,7 +32,7 @@ const PersonForm = ( {error, setError, setMessage, setNewName, setNewNumber, set
     console.log("error = ", error)
         if (window.confirm(` ${newName} is already added to phonebook, replace the old number with a new one?` )) {
         const personToChange = persons.find(person => person.name === newName)
-        const changedObject = {... personToChange, number: newNumber}
+        const changedObject = {...personToChange, number: newNumber}
         personService
         .alter(personToChange.id, changedObject)
         .then(returnedPerson => {
