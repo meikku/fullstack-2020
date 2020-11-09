@@ -57,7 +57,7 @@
 ##### E Adding styles to React app
 >~~2.19~~ (2.19-2.20 Phonebook)
 >~~2.20~~
-
+>TOTAL 39 done
 ### PART 3 
 ##### A Node.js and Express
 >3.1 (3.1-3.8 Phonebook backend)
