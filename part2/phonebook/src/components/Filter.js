@@ -1,13 +1,12 @@
 import React from 'react'
 
-const Filter = ( {handleQuery}) => {
+const Filter = (props) => {
+
   return (
-    <div>
-        <form>
-          filter shown with <input query="text" onChange={handleQuery}>
-          </input>
-      </form>
-    </div>
+    <input
+    value={props.value}
+    onChange={props.onChange}
+  />
   )
 }
 
