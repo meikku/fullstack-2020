@@ -92,8 +92,8 @@ const App = () => {
 
   const personsToShow = filterString.length === 0 ?
     persons : 
-    persons.filter(p => p.name.toLowerCase().indexOf(filterString.toLowerCase()) > 0 )
-
+    persons.filter(person => person.name.toLowerCase().trim().includes(filterString.toLowerCase().trim()))
+ 
   return (
     <div>
       <h2>Phonebook</h2>
