@@ -65,8 +65,8 @@ const App = () => {
         personService.update(existing.id, {
           name: existing.name,
           number:newNumber
-        }).then(retunedPerson => {
-          setPersons(persons.map(person => person.id !== existing.id ? person : retunedPerson))
+        }).then(returnedPerson => {
+          setPersons(persons.map(person => person.id !== existing.id ? person : returnedPerson))
           notifyWith(`Changed number of  ${existing.name}`)
           setNewName('')
           setNewNumber('')
