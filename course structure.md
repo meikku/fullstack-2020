@@ -60,26 +60,26 @@
 >TOTAL 39 done
 ### PART 3 
 ##### A Node.js and Express
->3.1 (3.1-3.8 Phonebook backend)
->3.2
->3.3
->3.4
->3.5
->3.6
->3.7
->3.8*
+>~3.1~ (3.1-3.8 Phonebook backend)
+>~3.2~
+>~3.3~
+>~3.4~
+>~3.5~
+>~3.6~
+>~3.7~
+>3.8* NOT DONE!
 ##### B Deploying app to internet
->3.9 (3.9-3.10 Phonebook backend) 
->3.10
->3.11 (Phonebook full stack)
+>~3.9~ (3.9-3.10 Phonebook backend) 
+>~3.10~
+>~3.11~ (Phonebook full stack)
 ##### C Saving data to MongoDB
->3.12 (command line database)
->3.13 (3.13-3.18 Phonebook database)
->3.14
->3.15
->3.16
->3.17*
->3.18*
+>~3.12~ (command line database)
+>~3.13~ (3.13-3.18 Phonebook database)
+>~3.14~
+>~3.15~
+>~3.16~
+>~3.17*~
+>~3.18*~
 ##### D Validation and ESLint
 >3.19 (3.19-3.20 Phonebook database)
 >3.20*
