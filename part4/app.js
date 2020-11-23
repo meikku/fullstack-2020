@@ -12,7 +12,14 @@ logger.info('connecting to', config.MONGODB_URI)
 
 mongoose.connect(config.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
 
+// const listHelper = require('../utils/list_helper')
 
+// test('dummy returns one', () => {
+//   const blogs = []
+
+//   const result = listHelper.dummy(blogs)
+//   expect(result).toBe(1)
+// })
 
 app.use(cors())
 app.use(express.json())
