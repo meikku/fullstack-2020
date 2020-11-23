@@ -81,10 +81,10 @@
 >~3.17*~
 >~3.18*~
 ##### D Validation and ESLint
->3.19 (3.19-3.20 Phonebook database)
->3.20*
->3.21 (Deploying the database backend to production)
->3.22 (Lint configuration)
+>~3.19~ (3.19-3.20 Phonebook database)
+>~3.20*~
+>~3.21~ (Deploying the database backend to production)
+>~3.22~ (Lint configuration)
 
 ### PART 4
 ##### A Structure of backend application, introduction to testing
