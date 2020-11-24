@@ -1,4 +1,4 @@
-const totalLikes = require('../utils/list_helper').totalLikes
+const totalLikes = require('../utils/listHelper').totalLikes
 
 describe('total likes', () => {
     const listWithOneBlog = [
@@ -13,7 +13,8 @@ describe('total likes', () => {
     ]
   
     test('when list has only one blog, equals the likes of that', () => {
-      const result = listHelper.totalLikes(listWithOneBlog)
+      const result = totalLikes(listWithOneBlog)
+      
       expect(result).toBe(5)
     })
   })
