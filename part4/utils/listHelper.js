@@ -12,9 +12,16 @@ const totalLikes = (array) => {
   : array.reduce(reducer, 0)
 }
  
+const favoriteBlog = (array) => {
+  const favorite = array.map((array) => array.likes).indexOf(Math.max(...array.map(array=>array.likes)))
+    return array.length === 0
+    ? null
+    : array[favorite]
+}
 
   module.exports = {
     dummy, 
     totalLikes,
+    favoriteBlog,
   }
 
