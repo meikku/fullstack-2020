@@ -1,4 +1,4 @@
-const favoriteBlog = require('../utils/listHelper').favoriteBlog
+const favoriteBlog = require('./listHelper').favoriteBlog
 
 describe('favorite blog', () => {
     const listWithOneBlog = [
