@@ -63,18 +63,28 @@ const blogsInDb = async () => {
   const blogs = await Blog.find({})
   return blogs.map(blog => blog.toJSON())
 }
+const getId = async () => {
+  const blogs = await Blog.find({})
+  return blogs[0].id.toJSON
+}
+
+const cat = () => {
+  return 'cat'
+}
+/* const mostBlogs = (array) => {
+  const busiestAuthor = array.countBy('author')
+
+  return busiestAuthor.maxBy(array)
+} */
 
   module.exports = {
     dummy, 
     totalLikes,
     favoriteBlog,
     initialBlogs,
-    blogsInDb
+    blogsInDb,
+    getId,
+    cat
+   // mostBlogs
   }
 
-/* const mostBlogs = (array) => {
-  const busiestAuthor = array.maxBy('author')
-  console.log(busiestAuthor)
-    return busiestAuthor
-}
- */
