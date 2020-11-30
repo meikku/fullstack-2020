@@ -38,3 +38,4 @@ describe('total likes', () => {
       expect(result).toBe(36)
     })
   })
+  

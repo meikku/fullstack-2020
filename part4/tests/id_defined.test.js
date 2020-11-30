@@ -1,4 +1,5 @@
 
+const mongoose = require('mongoose')
 const app = require('../app')
 const supertest = require('supertest')
 const api = supertest(app)
@@ -23,4 +24,8 @@ test('we have a cat', () => {
 test('ids for blog posts are defined', () => {
     
     expect(getId()).toBeDefined()
+})
+
+afterAll(() => {
+    mongoose.connection.close()
 })
