@@ -1,4 +1,10 @@
 const Blog = require('../models/blog')
+const User = require('../models/user')
+
+const usersInDb = async () => {
+  const users = await User.find({})
+  return users.map(u => u.toJSON)
+}
 
 const initialBlogs = [
   {
@@ -77,6 +83,7 @@ const cat = () => {
   return busiestAuthor.maxBy(array)
 } */
 
+
   module.exports = {
     dummy, 
     totalLikes,
@@ -84,7 +91,8 @@ const cat = () => {
     initialBlogs,
     blogsInDb,
     getId,
-    cat
+    cat,
+    usersInDb
    // mostBlogs
   }
 
