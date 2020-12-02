@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/5fbcc774abaaa005ea0f65ff
+Content-Type: application/json
+
+{
+    "title": "Trying to put new stuff",
+    "author": "master Yoda",
+    "url": "http://www.usetheforce.luke",
+    "likes": 33
+}

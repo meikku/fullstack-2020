@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const helper = require('./listHelper')
-const initialBlogs = require('./listHelper').initialBlogs
 const app = require('../app')
 const api = supertest(app)
 const Blog = require('../models/blog')
@@ -17,7 +16,6 @@ beforeEach(async () => {
 })
 
 test('likes are always set to 0 if empty', async () => {
-
     const blog = {
         author: "Gordon Ramsay",
         title: "Gourmet",

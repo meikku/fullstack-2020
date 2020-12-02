@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const helper = require('./listHelper')
 const initialBlogs = require('./listHelper').initialBlogs
+const blogsInDb = require('./listHelper').blogsInDb
 const app = require('../app')
 const api = supertest(app)
 const Blog = require('../models/blog')
@@ -39,6 +40,25 @@ test('a valid blog can be added', async () => {
     expect(titles).toContain(
       'The coding genius'
       )
+  })
+
+  test('blog without title and url is not added', async () => {
+    const newBlog = {
+      author: 'Hans Välimäki',
+      likes: 1000
+    }
+
+    await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(400)
+
+    const blogsAtEnd = await helper.blogsInDb()
+
+      expect(blogsAtEnd.length).toBe(helper.initialBlogs.length)
+   /*  const response = await api.get('api/blogs')
+
+    expect(response.body).toHaveLength(initialBlogs.length) */
   })
      
     /* const response = await api.get('/api/blogs')
