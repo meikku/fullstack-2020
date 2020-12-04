@@ -4,11 +4,13 @@ const uniqueValidator = require('mongoose-unique-validator')
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
-    unique: true
+    minlength: 3,
+    unique: true,
+    required: true
   },
   name: String,
   passwordHash: String,
-  blogs: [
+    blogs: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Blog'
