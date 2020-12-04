@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user')
-const error = require('../utils/logger').error
+// const error = require('../utils/logger').error
 
 usersRouter.get('/', async (request, response) => {
   const users = await User

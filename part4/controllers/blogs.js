@@ -12,20 +12,20 @@ blogsRouter.get('/', async (request, response) => {
 blogsRouter.post('/', async (request, response) => {
   const body = request.body
 
-  const user = await User.findById(body.userId)
+  const user = await User.findOne()
 
   const blog = new Blog({
     title: body.title,
     author: body.author,
     url: body.url,
     likes: body.likes || 0,
-    user: user._id
+    user: user
   })
     const savedBlog = await blog.save()
     user.blogs = user.blogs.concat(savedBlog._id)
     await user.save()
 
-    response.json(savedBlog.toJSON)
+    // response.json(savedBlog.toJSON)
 })
 
 blogsRouter.delete('/:id', async (request, response) => {
