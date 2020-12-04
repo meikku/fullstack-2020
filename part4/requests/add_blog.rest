@@ -1,10 +1,10 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFubmVsaSIsImlkIjoiNWZjOWZmMjM4NjJiZjAwNDZjM2ZmZmUzIiwiaWF0IjoxNjA3MDg0Mjk2fQ.PAIf-cmInVPeZHDTORW2hpEDOQFEIiufmAuIRt_3cMY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlR1dWxhIiwiaWQiOiI1ZmNhMDAyY2I5NmYwMDMwNGMxNjMzMzUiLCJpYXQiOjE2MDcwOTAyMDZ9.gAWghbTjhXZzuan_28S1X9vbzDNzwKbxPMQ0zmt4_dQ
 
 {
-    "title": "Alsacian wines",
-    "author": "Mde Rochelaine",
-    "url": "http://www.levins.html",
-    "likes": 72
+    "title": "Titles",
+    "author": "Author Lex",
+    "url": "http://www.authors.html",
+    "likes": 5
 }
