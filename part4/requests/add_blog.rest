@@ -1,10 +1,9 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRlbGxlcnZvIiwiaWQiOiI1ZmNkMmZjNjBlNWU2NzJiYzUzOWEzOTQiLCJpYXQiOjE2MDcyODI3MDV9.40qKlnp0vMfA7FFE2_7TA4G8Q7_phlrCm7tumla7Oi8
-
+Authorization: 
 {
-    "title": "Titles",
-    "author": "Author Lex",
-    "url": "http://www.authors.html",
-    "likes": 5
+    "title": "",
+    "author": "",
+    "url": "",
+    "likes": 
 }
