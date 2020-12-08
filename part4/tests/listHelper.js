@@ -30,7 +30,7 @@ const initialBlogs = [
     },
     {
     title: "Peruna",
-    author: "Robert C. Martin",
+    author: "Edsger W. Dijkstra",
     url: "http://blog.cleancoder.com/uncle-bob/2017/05/05/TestDefinitions.html",
     likes: 89,
     id: "5fbcc7a9abaaa005ea0f6600"
@@ -77,11 +77,11 @@ const getId = async () => {
 const cat = () => {
   return 'cat'
 }
-/* const mostBlogs = (array) => {
-  const busiestAuthor = array.countBy('author')
+const mostBlogs = (initialBlogs) => {
+  const busiestAuthor = initialBlogs.countBy('author')
 
-  return busiestAuthor.maxBy(array)
-} */
+  return busiestAuthor.maxBy(initialBlogs)
+} 
 
 
   module.exports = {
@@ -92,7 +92,7 @@ const cat = () => {
     blogsInDb,
     getId,
     cat,
-    usersInDb
-   // mostBlogs
+    usersInDb,
+    mostBlogs
   }
 

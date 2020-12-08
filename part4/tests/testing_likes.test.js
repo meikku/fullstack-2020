@@ -16,7 +16,7 @@ beforeEach(async () => {
 })
 
 test('likes are always set to 0 if empty', async () => {
-    const blog = {
+    const newBlog = {
         author: "Gordon Ramsay",
         title: "Gourmet",
         url: "http://gordonrocks.com",
@@ -27,6 +27,8 @@ test('likes are always set to 0 if empty', async () => {
     .post('/api/blogs')
     .send(newBlog)
     .expect(200)
+
+    // const response = await api.get('/api/blogs')
 })
 
 
