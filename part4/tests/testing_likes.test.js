@@ -4,8 +4,6 @@ const helper = require('./listHelper')
 const app = require('../app')
 const api = supertest(app)
 const Blog = require('../models/blog')
-const test = require('jest')
-
 
 beforeEach(async () => {
   await Blog.deleteMany({})
@@ -28,10 +26,9 @@ test('likes are always set to 0 if empty', async () => {
     .send(newBlog)
     .expect(200)
 
-    // const response = await api.get('/api/blogs')
+    const blogsAtEnd = await helper.blogsInDb()
+    expect(blogsAtEnd[helper.initialBlogs.length].likes).toBe(0)
 })
-
-
   
 afterAll(() => {
     mongoose.connection.close()

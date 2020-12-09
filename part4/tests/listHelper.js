@@ -1,5 +1,6 @@
 const Blog = require('../models/blog')
 const User = require('../models/user')
+const _ = require('lodash')
 
 const usersInDb = async () => {
   const users = await User.find({})
@@ -77,11 +78,14 @@ const getId = async () => {
 const cat = () => {
   return 'cat'
 }
-const mostBlogs = (initialBlogs) => {
-  const busiestAuthor = initialBlogs.countBy('author')
 
-  return busiestAuthor.maxBy(initialBlogs)
-} 
+// const mostBlogs = (initialBlogs) => {
+//   const amountOfBlogs = _.countBy(initialBlogs, initialBlogs.author)
+//   return amountOfBlogs.map(a => a.author, a.blogs)
+//   // const busiestAuthor = amountOfBlogs.map(a => a.author, a.blogs)
+//   // return busiestAuthor
+// } 
+
 
 
   module.exports = {
@@ -93,6 +97,6 @@ const mostBlogs = (initialBlogs) => {
     getId,
     cat,
     usersInDb,
-    mostBlogs
+    // mostBlogs
   }
 
