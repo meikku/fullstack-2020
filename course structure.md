@@ -67,7 +67,7 @@
 >~3.5~
 >~3.6~
 >~3.7~
->3.8* NOT DONE!
+>~3.8~
 TOTAL 46 DONE
 ##### B Deploying app to internet
 >~3.9~ (3.9-3.10 Phonebook backend) 
@@ -96,14 +96,14 @@ TOTAL 60 DONE
 >~4.3~
 >~4.4~
 >~4.5~
->4.6
->4.7
+>~4.6~
+>~4.7~
 ##### B Testing the backend
 >~4.8~
 >~4.9~
 >~4.10~
->4.11
->4.12
+>~4.11~
+>~4.12~
 >~4.13~
 >~4.14~
 ##### C User administration
@@ -115,7 +115,7 @@ TOTAL 60 DONE
 >~4.19~
 >~4.20~
 >~4.21~
->4.22
+>4.22 NOT DONE !
 ### PART 5 
 ##### A Login in frontend
 >5.1
