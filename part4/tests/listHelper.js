@@ -49,7 +49,6 @@ const dummy = () => {
     return (1)
   }
 
-
 const totalLikes = (array) => {
   const reducer = (sum, item) => {
     return sum + item.likes
@@ -79,8 +78,31 @@ const cat = () => {
   return 'cat'
 }
 
+const mostBlogs = (initialBlogs) => {
+  const groupAuthors = _.groupBy(initialBlogs, blog => blog.author)
+  console.log("groupAuthors", groupAuthors)
+  const authors = []
+  _.forEach(groupAuthors, (blogs, author) => {
+    authors.push(
+      {
+        author: author,
+        blogs: blogs.length
+      }
+    )
+  })
+  const sorted = _.sortBy(authors, author => author.blogs)
+  return sorted.pop()
+}
+
 // const mostBlogs = (initialBlogs) => {
 //   const amountOfBlogs = _.countBy(initialBlogs, initialBlogs.author)
+//   console.log("amountOfBlogs", _.forEach(amountOfBlogs))
+  
+//   return _.maxBy(amountOfBlogs, amountOfBlogs.blogs)
+// }
+
+// const mostBlogs = (initialBlogs) => {
+// const amountOfBlogs = _.countBy(initialBlogs, initialBlogs.author)
 //   return amountOfBlogs.map(a => a.author, a.blogs)
 //   // const busiestAuthor = amountOfBlogs.map(a => a.author, a.blogs)
 //   // return busiestAuthor
@@ -97,6 +119,6 @@ const cat = () => {
     getId,
     cat,
     usersInDb,
-    // mostBlogs
+    mostBlogs
   }
 

@@ -4,7 +4,7 @@ const initialBlogs = require('./listHelper').initialBlogs
   test('author with most blogs', () => {
       const result = mostBlogs(initialBlogs)
 
-      expect(result).toBe({
+      expect(result).toEqual({
         author: 'Edsger W. Dijkstra',
         blogs: 2
       })
