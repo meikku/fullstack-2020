@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login'
+import Notification from './components/Notification'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
   const [newBlog, setNewBlog] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [notification, setNotification] = useState(null)
   const [user, setUser] = useState(null)
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
@@ -29,7 +30,13 @@ const App = () => {
     }
   }, [])
 
-  
+  const notifyWith = (message) => {
+    setNotification({ message})
+    setTimeout(() => {
+      setNotification(null)
+    }, 5000)
+  }
+
   const addBlog = (event) => {
     event.preventDefault()
     const blogObject = {
@@ -44,6 +51,7 @@ const App = () => {
       .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
         setNewBlog('')
+      notifyWith(`a new blog ', ${title}, ' by ', ${author},  'was added`)
       })
   }
 
@@ -64,10 +72,10 @@ const App = () => {
       setUsername('')
       setPassword('')
     } catch (exception) {
-      setErrorMessage('Wrong credentials')
-      setTimeout(() => {
-        setErrorMessage(null)
-      }, 5000)
+      notifyWith('Wrong credentials')
+      // setTimeout(() => {
+      //   setErrorMessage(null)
+      // }, 5000)
     }
   }
 
