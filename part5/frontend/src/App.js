@@ -71,11 +71,12 @@ const App = () => {
       setUser(user)
       setUsername('')
       setPassword('')
-    } catch (exception) {
-      notifyWith('Wrong credentials')
-      // setTimeout(() => {
-      //   setErrorMessage(null)
-      // }, 5000)
+      } catch (exception) {
+        setNotification('Wrong credentials')
+      //notifyWith('Wrong credentials')
+      setTimeout(() => {
+        setNotification(null)
+      }, 5000)
     }
   }
 
