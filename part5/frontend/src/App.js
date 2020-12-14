@@ -5,15 +5,15 @@ import loginService from './services/login'
 import Notification from './components/Notification'
 
 const App = () => {
-  const [blogs, setBlogs] = useState([])
-  const [newBlog, setNewBlog] = useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const [notification, setNotification] = useState(null)
-  const [user, setUser] = useState(null)
-  const [title, setTitle] = useState("")
-  const [author, setAuthor] = useState("")
-  const [url, setUrl] = useState("")
+  const [ blogs, setBlogs ] = useState([])
+  const [ newBlog, setNewBlog ] = useState('')
+  const [ username, setUsername ] = useState('')
+  const [ password, setPassword ] = useState('')
+  const [ notification, setNotification ] = useState(null)
+  const [ user, setUser ] = useState(null)
+  const [ title, setTitle ] = useState("")
+  const [ author, setAuthor ] = useState("")
+  const [ url, setUrl ] = useState("")
 
   useEffect(() => {
     blogService.getAll().then(initialBlogs =>
@@ -31,7 +31,7 @@ const App = () => {
   }, [])
 
   const notifyWith = (message) => {
-    setNotification({ message})
+    setNotification({ message })
     setTimeout(() => {
       setNotification(null)
     }, 5000)
@@ -72,11 +72,11 @@ const App = () => {
       setUsername('')
       setPassword('')
       } catch (exception) {
-        setNotification('Wrong credentials')
-      //notifyWith('Wrong credentials')
-      setTimeout(() => {
+      //  setNotification('Wrong credentials')
+      notifyWith('Wrong credentials')
+     /*  setTimeout(() => {
         setNotification(null)
-      }, 5000)
+      }, 5000) */
     }
   }
 
@@ -149,6 +149,7 @@ const App = () => {
 
   return (
     <div>
+      <Notification notification={notification} />
       {user === null ? 
       loginForm() : 
       <div>
