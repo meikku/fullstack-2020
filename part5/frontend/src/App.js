@@ -40,9 +40,9 @@ const App = () => {
   const addBlog = (event) => {
     event.preventDefault()
     const blogObject = {
-      title: title.target.value,
-      author: title.target.author,
-      url: title.target.url
+      title: title,
+      author: author,
+      url: url
   //  content: newBlog
     }
 
@@ -51,7 +51,7 @@ const App = () => {
       .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
         setNewBlog('')
-      notifyWith(`a new blog ', ${title}, ' by ', ${author},  'was added`)
+      notifyWith(`a new blog  ${title} by ${author} was added`)
       })
   }
 
