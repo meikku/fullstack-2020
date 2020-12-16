@@ -3,6 +3,7 @@ import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login'
 import Notification from './components/Notification'
+import BlogForm from './components/BlogForm'
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
@@ -14,6 +15,7 @@ const App = () => {
   const [ title, setTitle ] = useState("")
   const [ author, setAuthor ] = useState("")
   const [ url, setUrl ] = useState("")
+  const [ blogFormVisible, setBlogFormVisible ] = useState(false)
 
   useEffect(() => {
     blogService.getAll().then(initialBlogs =>
@@ -72,14 +74,13 @@ const App = () => {
       setUsername('')
       setPassword('')
       } catch (exception) {
-      //  setNotification('Wrong credentials')
       notifyWith('Wrong credentials')
-     /*  setTimeout(() => {
-        setNotification(null)
-      }, 5000) */
     }
   }
-
+  const blogForm = () => {
+    const hideWhenVisible = { display: blogFormVisible ? 'none' : ''}
+    const showWhenVisible = { display: blogFormVisible ? '' : 'none' }
+  }
   
   const loginForm = () => (
     <div>
@@ -106,40 +107,6 @@ const App = () => {
       <button type="submit">login</button>
     </form>
     </div>
-  )
-
-  const blogForm = () => (
-    <div>
-    <h2>create new</h2> 
-        
-    <form onSubmit={addBlog}>
-      <div>
-        title: 
-      <input
-        type="text"
-        value={title}
-        onChange={({ target }) => setTitle(target.value)}
-      />
-      </div>
-      <div>
-        author:
-      <input
-        type="text"
-        value={author}
-        onChange={({ target }) => setAuthor(target.value)}
-      />
-      </div>
-      <div>
-        url:
-      <input
-        type="text"
-        value={url}
-        onChange={({ target }) => setUrl(target.value)}
-      />
-      </div>
-      <button type="submit">create</button>
-    </form>
-  </div>
   )
 
   const logOut =  async (event) => {
