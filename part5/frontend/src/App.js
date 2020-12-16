@@ -123,23 +123,23 @@ const App = () => {
       </div>
       <div>
         author:
-    <input
-    type="text"
-      value={author}
-      onChange={({ target }) => setAuthor(target.value)}
-    />
-    </div>
-  <div>
-    url:
-  <input
-  type="text"
-    value={url}
-    onChange={({ target }) => setUrl(target.value)}
-  />
+      <input
+        type="text"
+        value={author}
+        onChange={({ target }) => setAuthor(target.value)}
+      />
+      </div>
+      <div>
+        url:
+      <input
+        type="text"
+        value={url}
+        onChange={({ target }) => setUrl(target.value)}
+      />
+      </div>
+      <button type="submit">create</button>
+    </form>
   </div>
-<button type="submit">create</button>
-</form>
-</div>
   )
 
   const logOut =  async (event) => {
