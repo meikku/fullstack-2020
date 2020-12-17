@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Blog from './components/Blog'
 import blogService from './services/blogs'
 import loginService from './services/login'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
+import Togglable from './components/Togglable'
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
-  const [ newBlog, setNewBlog ] = useState('')
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ notification, setNotification ] = useState(null)
   const [ user, setUser ] = useState(null)
-  const [ title, setTitle ] = useState("")
-  const [ author, setAuthor ] = useState("")
-  const [ url, setUrl ] = useState("")
-  const [ blogFormVisible, setBlogFormVisible ] = useState(false)
+  
+  const blogFormRef = useRef()
 
   useEffect(() => {
-    blogService.getAll().then(initialBlogs =>
+    blogService
+    .getAll()
+    .then(initialBlogs =>
       setBlogs(initialBlogs)
     )
   }, [])
@@ -39,21 +39,13 @@ const App = () => {
     }, 5000)
   }
 
-  const addBlog = (event) => {
-    event.preventDefault()
-    const blogObject = {
-      title: title,
-      author: author,
-      url: url
-  //  content: newBlog
-    }
-
+  const addBlog = (blogObject) => {
+    blogFormRef.current.toggleVisibility()
     blogService
       .create(blogObject)
       .then(returnedBlog => {
         setBlogs(blogs.concat(returnedBlog))
-        setNewBlog('')
-      notifyWith(`a new blog  ${title} by ${author} was added`)
+      notifyWith(`a new blog  ${blogObject.title} by ${blogObject.author} was added`)
       })
   }
 
@@ -77,10 +69,12 @@ const App = () => {
       notifyWith('Wrong credentials')
     }
   }
-  const blogForm = () => {
-    const hideWhenVisible = { display: blogFormVisible ? 'none' : ''}
-    const showWhenVisible = { display: blogFormVisible ? '' : 'none' }
-  }
+  const blogForm = () => (
+    <Togglable buttonLabel ='create new' ref={blogFormRef}>
+    <BlogForm createBlog={addBlog}
+    />
+    </Togglable>
+  )
   
   const loginForm = () => (
     <div>
