@@ -118,6 +118,10 @@ const App = () => {
     setUser(null)
   }
 
+  const sortedBlog = (blogs) => {
+    return blogs.sort((a, b) => b.likes - a.likes) 
+  }  
+
   return (
     <div>
       <Notification notification={notification} />
@@ -133,7 +137,7 @@ const App = () => {
       </div>
     }
       
-      {blogs.map(blog =>
+      {sortedBlog(blogs).map(blog =>
         <Blog key={blog.id} blog={blog} changeLikes={changeLikes}/>
       )}
     </div>
