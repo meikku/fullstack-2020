@@ -49,6 +49,16 @@ const App = () => {
       })
   }
 
+  const removeBlog = (id) => {
+    const blogToDelete = blogs.find(n => n.id === id)
+    blogService
+    .remove(id)
+    .then(response => {
+      setBlogs(blogs.filter(p => p.id !== id))
+      notifyWith(`Remove blog ${blogToDelete.title} `)
+    })
+  }
+ 
   const changeLikes = (id, blogObject) => {
     const likedBlog = blogs.find(n => n.id === id)
     blogService
@@ -138,7 +148,7 @@ const App = () => {
     }
       
       {sortedBlog(blogs).map(blog =>
-        <Blog key={blog.id} blog={blog} changeLikes={changeLikes}/>
+        <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
       )}
     </div>
   )
