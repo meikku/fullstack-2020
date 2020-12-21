@@ -13,6 +13,8 @@ const App = () => {
   const [ notification, setNotification ] = useState(null)
   const [ user, setUser ] = useState(null)
 
+  console.log('user', user)
+
   const blogFormRef = useRef()
 
   useEffect(() => {
@@ -125,6 +127,7 @@ const App = () => {
 
   const logOut =  async () => {
     window.localStorage.clear()
+    blogService.setToken(null)
     setUser(null)
   }
 
