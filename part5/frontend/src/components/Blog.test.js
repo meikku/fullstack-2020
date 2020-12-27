@@ -50,3 +50,28 @@ test('renders only title and author', () => {
         'http://santastests.com, 1'
     )
 })
+test('renders blog details', () => {
+    const user = {
+        username: 'Jani',
+        name: 'jani'
+    }
+    const blog = {
+        title: 'Oh what fun it is to test',
+        author: 'Santa',
+        url: 'http://santastests.com',
+        likes: '1',
+        user: user
+    } 
+    const component = render(
+        <Blog blog={blog} user={user}/> 
+    )
+    component.debug()
+
+    const div2 = component.container.querySelector('.blogsInDetail')
+    expect(div2).toHaveTextContent(
+        'Oh what fun it is to test',
+        'Santa',
+        'http://santastests.com',
+        '1',
+    )
+})
