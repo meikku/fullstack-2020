@@ -41,8 +41,8 @@
 >~~2.6~~
 >~~2.7~~
 >~~2.8~~
->2.9*~~
->2.10~~
+>~~2.9*~~
+>~~2.10~~
 ##### C Getting data from server
 >~~2.11~~
 >~~2.12*~~
@@ -60,80 +60,81 @@
 >TOTAL 39 done
 ### PART 3 
 ##### A Node.js and Express
->~3.1~ (3.1-3.8 Phonebook backend)
->~3.2~
->~3.3~
->~3.4~
->~3.5~
->~3.6~
->~3.7~
->~3.8~
-TOTAL 46 DONE
+>~~3.1~~ (3.1-3.8 Phonebook backend)
+>~~3.2~~
+>~~3.3~~
+>~~3.4~~
+>~~3.5~~
+>~~3.6~~
+>~~3.7~~
+>~~3.8~~
+TOTAL 47 DONE
 ##### B Deploying app to internet
->~3.9~ (3.9-3.10 Phonebook backend) 
->~3.10~
->~3.11~ (Phonebook full stack)
-TOTAL 49 DONE
+>~~3.9~~ (3.9-3.10 Phonebook backend) 
+>~~3.10~~
+>~~3.11~~ (Phonebook full stack)
+TOTAL 50 DONE
 ##### C Saving data to MongoDB
->~3.12~ (command line database)
->~3.13~ (3.13-3.18 Phonebook database)
->~3.14~
->~3.15~
->~3.16~
->~3.17*~
->~3.18*~
-TOTAL 56 DONE
+>~~3.12~~ (command line database)
+>~~3.13~~ (3.13-3.18 Phonebook database)
+>~~3.14~~
+>~~3.15~~
+>~~3.16~~
+>~~3.17*~~
+>~~3.18*~~
+TOTAL 57 DONE
 ##### D Validation and ESLint
->~3.19~ (3.19-3.20 Phonebook database)
->~3.20*~
->~3.21~ (Deploying the database backend to production)
->~3.22~ (Lint configuration)
-TOTAL 60 DONE
+>~~3.19~~ (3.19-3.20 Phonebook database)
+>~~3.20*~~
+>~~3.21~~ (Deploying the database backend to production)
+>~~3.22~~ (Lint configuration)
+TOTAL 61 DONE
 ### PART 4
 ##### A Structure of backend application, introduction to testing
->~4.1~
->~4.2~
->~4.3~
->~4.4~
->~4.5~
->~4.6~
->~4.7~
+>~~4.1~~
+>~~4.2~~
+>~~4.3~~
+>~~4.4~~
+>~~4.5~~
+>~~4.6~~
+>~~4.7~~
 ##### B Testing the backend
->~4.8~
->~4.9~
->~4.10~
->~4.11~
->~4.12~
->~4.13~
->~4.14~
+>~~4.8~~
+>~~4.9~~
+>~~4.10~~
+>~~4.11~~
+>~~4.12~~
+>~~4.13~~
+>~~4.14~~
 ##### C User administration
 ##### D Token authentication
->~4.15~
->~4.16~
->~4.17~
->~4.18~
->~4.19~
->~4.20~
->~4.21~
->4.22 NOT DONE !
+>~~4.15~~
+>~~4.16~~
+>~~4.17~~
+>~~4.18~~
+>~~4.19~~
+>~~4.20~~
+>~~4.21~~
+>4.22 NOT DONE ! -> mistake in submission
+>TOTAL 82 DONE (not 83)
 ### PART 5 
 ##### A Login in frontend
->5.1
->5.2
->5.3
->5.4
+>~~5.1~~
+>~~5.2~~
+>~~5.4~~
+>~~5.3~~
 ##### B props.children and proptypes
->5.5
->5.6
->5.7
->5.8
->5.9
->5.10
->5.11
->5.12
+>~~5.5~~
+>~~5.6~~
+>~~5.7~~
+>~~5.8~~
+>~~5.9~~
+>~~5.10~~
+>~~5.11~~
+>~~5.12~~
 ##### C Testing React apps
->5.13
->5.14
+>~~5.13~~
+>~~5.14~~ TOTAL 96 DONE
 >5.15
 >5.16
 ##### D End to end -testing
