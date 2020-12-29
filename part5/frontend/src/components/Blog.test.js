@@ -3,6 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { render, fireEvent } from '@testing-library/react'
 import { prettyDOM, getByText } from '@testing-library/dom'
 import Blog from './Blog'
+import BlogForm from './BlogForm'
 
 test('renders content', () => {
     const user = {
@@ -90,7 +91,7 @@ test('clicking the button calls event handler once', () => {
     const mockHandler = jest.fn()
 
     const component = render(
-        <Blog blog={blog} user={user} handleLikes={mockHandler} changeLikes={mockHandler}/>
+        <Blog blog={blog} user={user} changeLikes={mockHandler}/>
     )
 
     const button = component.getByText('like')
@@ -99,3 +100,37 @@ test('clicking the button calls event handler once', () => {
 
     expect(mockHandler.mock.calls).toHaveLength(2)
 })
+
+    
+test('<BlogForm /> updates parent state and calls onSubmit', () => {
+    const createBlog = jest.fn()
+
+    const component = render(
+        <BlogForm createBlog={createBlog} />
+    )
+    
+    const form = component.container.querySelector('form')
+    const title = component.container.querySelector('#title')
+    const author = component.container.querySelector('#author')
+    const url = component.container.querySelector('#url')
+    
+    
+    fireEvent.change(title, {
+        target: { value: 'this is a new title' }
+    })
+
+    fireEvent.change(author, {
+        target: { value: 'Rudolph' }
+    })
+
+    fireEvent.change(url, {
+        target: { value: 'http://rudolph.com' }
+    })
+    fireEvent.submit(form)
+
+
+    expect(createBlog.mock.calls).toHaveLength(1)
+    expect(createBlog.mock.calls[0][0].title).toBe('this is a new title')
+    expect(createBlog.mock.calls[0][0].author).toBe('Rudolph')
+    expect(createBlog.mock.calls[0][0].url).toBe('http://rudolph.com')
+})   
