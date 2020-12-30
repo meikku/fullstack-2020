@@ -115,8 +115,8 @@ TOTAL 61 DONE
 >~~4.19~~
 >~~4.20~~
 >~~4.21~~
->4.22 NOT DONE ! -> mistake in submission
->TOTAL 82 DONE (not 83)
+>4.22 NOT DONE 
+>TOTAL 82 DONE 
 ### PART 5 
 ##### A Login in frontend
 >~~5.1~~
@@ -134,55 +134,55 @@ TOTAL 61 DONE
 >~~5.12~~
 ##### C Testing React apps
 >~~5.13~~
->~~5.14~~ TOTAL 96 DONE
->5.15
->5.16
+>~~5.14~~ 
+>~~5.15~~
+>~~5.16~~ TOTAL 98 DONE
 ##### D End to end -testing
 >5.17
 >5.18
 >5.19
 >5.20
 >5.21
->5.22
+>5.22 (total 104)
 
 ### PART 6 
 ##### A Flux-architecture and Redux
->6.1
+>6.1 (105 ex) -> credits 4
 >6.2
 >6.3
 >6.4
 >6.5
 >6.6
 >6.7
->6.8
+>6.8 (total 112)
 ##### B Many reducers
 >6.9
 >6.10
 >6.11
->6.12
+>6.12 (total 116) -> credits 5
 ##### C Communicating with server in a redux application 
 >6.13
 >6.14
 >6.15
 >6.16
 >6.17
->6.18
+>6.18 (total 122)
 ##### D connect
 >6.19
 >6.20
->6.21
+>6.21 (total 125)
 
 ### PART 7
 ##### A React-router
 >7.1
->7.2
->7.3
+>7.2 -> credits 6 (127 ex)
+>7.3 (total 128)
 ##### B Custom hooks
 >7.4
 >7.5
 >7.6
 >7.7
->7.8
+>7.8 (total 133)
 ##### C More about styles
 ##### D Webpack
 ##### E Class components, Miscellaneous
@@ -199,6 +199,9 @@ TOTAL 61 DONE
 >7.18
 >7.19
 >7.20
->7.21
-
->credits 7: required exercises 138
+>7.21 (total 146)
+>
+>credits 4: required exercises 105
+>cred 5: 116 ex
+>cred 6: 127 ex
+>cred 7: 138 ex
