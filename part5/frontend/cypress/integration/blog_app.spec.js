@@ -28,7 +28,12 @@ describe('Blog app', function() {
       cy.get('#username').type('Mikko')
       cy.get('#password').type('julkinen')
       cy.get('#login').click()
-      cy.contains('Wrong credentials')
+      
+      cy.get('.notification')
+      .should('contain', 'Wrong credentials')
+      .and('have.css', 'color', 'rgb(0, 0, 255)')
+      .and('have.css', 'border-style', 'solid')
+      cy.get('html').should('not.contain', 'mirja is logged in')
     })
   })
 })
