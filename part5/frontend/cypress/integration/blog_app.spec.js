@@ -55,6 +55,7 @@ describe('Blog app', function() {
           cy.get('#url').type('https://welcome2021.com')
           cy.get('#create').click()
           cy.contains('Bye bye 2020 by Helena was added')
+          cy.contains('Bye bye 2020 Helena')
       })
   })
 })
