@@ -6,6 +6,11 @@ describe('Blog app', function() {
           username: 'Mirja',
           password: 'salainen'
       }
+      const blog ={
+          title: 'Bye bye 2020',
+          author: 'Helena',
+          url: 'http://come2021.com'
+      }
       cy.request('POST', 'http://localhost:3003/api/users/', user)
       cy.visit('http://localhost:3000')
     })
@@ -35,5 +40,21 @@ describe('Blog app', function() {
       .and('have.css', 'border-style', 'solid')
       cy.get('html').should('not.contain', 'mirja is logged in')
     })
+  })
+  describe('When logged in', function() {
+      beforeEach(function() {
+        cy.get('#username').type('Mirja')
+        cy.get('#password').type('salainen')
+        cy.get('#login').click()
+      })
+
+      it('A new blog can be created', function() {
+          cy.contains('create').click()
+          cy.get('#title').type('Bye bye 2020')
+          cy.get('#author').type('Helena')
+          cy.get('#url').type('https://welcome2021.com')
+          cy.get('#create').click()
+          cy.contains('Bye bye 2020 by Helena was added')
+      })
   })
 })
