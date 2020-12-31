@@ -46,7 +46,7 @@ describe('Blog app', function() {
         cy.get('#username').type('Mirja')
         cy.get('#password').type('salainen')
         cy.get('#login').click()
-        cy.contains('create').click()
+        cy.contains('create new').click()
         cy.get('#title').type('Bye bye 2020')
         cy.get('#author').type('Helena')
         cy.get('#url').type('https://welcome2021.com')
@@ -57,6 +57,7 @@ describe('Blog app', function() {
           cy.contains('Bye bye 2020 by Helena was added')
           cy.contains('Bye bye 2020 Helena')
       })
+
       it('user can like a blog', function() {
           cy.contains('view')
             .click()
@@ -65,6 +66,14 @@ describe('Blog app', function() {
           cy.contains('Bye bye 2020')
           cy.get('#like').contains('1')
           cy.get('#like').should('not.contain', '0')
+      })
+      it('user can delete blog', function() {
+          cy.get('#view')
+          .click()
+          cy.get('#remove')
+          .click()
+          cy.get('.notification')
+          .should('contain', 'Remove blog Bye bye 2020')
       })
   })
 })
