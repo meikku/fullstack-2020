@@ -1,3 +1,5 @@
+import { checkPropTypes } from "prop-types"
+
 describe('Blog app', function() {
     beforeEach(function() {
       cy.request('POST', 'http://localhost:3003/api/testing/reset')
@@ -5,11 +7,6 @@ describe('Blog app', function() {
           name: 'mirja',
           username: 'Mirja',
           password: 'salainen'
-      }
-      const blog ={
-          title: 'Bye bye 2020',
-          author: 'Helena',
-          url: 'http://come2021.com'
       }
       cy.request('POST', 'http://localhost:3003/api/users/', user)
       cy.visit('http://localhost:3000')
@@ -41,7 +38,7 @@ describe('Blog app', function() {
       cy.get('html').should('not.contain', 'mirja is logged in')
     })
   })
-  describe.only('When logged in', function() {
+  describe('When logged in', function() {
       beforeEach(function() {
         cy.get('#username').type('Mirja')
         cy.get('#password').type('salainen')
@@ -74,6 +71,32 @@ describe('Blog app', function() {
           .click()
           cy.get('.notification')
           .should('contain', 'Remove blog Bye bye 2020')
+      })
+  })
+  describe.only('Several blogs with different amount of likes', function() {
+      beforeEach(function() {
+          cy.login({ username: 'Mirja', password: 'salainen'})
+          cy.createBlog({
+              title: 'first blog',
+              author: 'first author',
+              url: 'http://firsturl.com',
+              likes: 7
+          })
+          cy.createBlog({
+            title: 'second blog',
+            author: 'second author',
+            url: 'http://secondurl.com',
+            likes: 1
+          })
+          cy.createBlog({
+            title: 'third blog',
+            author: 'third author',
+            url: 'http://thirdurl.com',
+            likes: 12
+          })
+      })
+      it('blogs are sorted according to likes', function() {
+          
       })
   })
 })
