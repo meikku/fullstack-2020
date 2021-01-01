@@ -96,7 +96,13 @@ describe('Blog app', function() {
           })
       })
       it('blogs are sorted according to likes', function() {
-          
+        cy.get('#blogs')
+          cy.get('#title').then( titles => {
+            console.log('number of titles', titles.length)
+            cy.wrap(titles[0]).contains('third blog')
+            cy.wrap(titles[1]).contains('first blog')
+            cy.wrap(titles[2]).contains('second blog')
+          })
       })
   })
 })
