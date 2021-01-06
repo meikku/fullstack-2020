@@ -11,7 +11,7 @@ const addAnecdote = (event) => {
     const content = event.target.anecdote.value
     event.target.anecdote.value = ''
     dispatch(createAnecdote(content))
-    dispatch(showNotification(`created blog ${content}`))
+    dispatch(showNotification(`You created blog '${content}'`))
     setTimeout(() => dispatch(hideNotification(null)), 5000)    
 }
   
