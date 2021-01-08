@@ -3,12 +3,12 @@
     {
       "content": "Easy does it",
       "id": "47145",
-      "votes": 6
+      "votes": 18
     },
     {
       "content": "Adding manpower to a late software project makes it later!",
       "id": "21149",
-      "votes": 4
+      "votes": 8
     },
     {
       "content": "The first 90 percent of the code accounts for the first 90 percent of the development time...The remaining 10 percent of the code accounts for the other 90 percent of the development time.",
@@ -18,7 +18,7 @@
     {
       "content": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
       "id": "36975",
-      "votes": 0
+      "votes": 2
     },
     {
       "content": "Premature optimization is the root of all evil.",
@@ -28,22 +28,52 @@
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
       "id": "98312",
-      "votes": 0
+      "votes": 1
     },
     {
       "content": "More is more",
-      "votes": 1,
+      "votes": 2,
       "id": "6oZnf6-"
     },
     {
       "content": "Less is less",
-      "votes": 12,
+      "votes": 47,
       "id": "nNOQaoH"
     },
     {
       "content": "",
-      "votes": 0,
+      "votes": 1,
       "id": "e8A4jdN"
+    },
+    {
+      "content": "Time is an illusion",
+      "votes": 0,
+      "id": "V7KEnan"
+    },
+    {
+      "content": "",
+      "votes": 0,
+      "id": "WPBeLkx"
+    },
+    {
+      "content": "Time is of the essence",
+      "votes": 0,
+      "id": "fipllA9"
+    },
+    {
+      "content": "There is no time",
+      "votes": 0,
+      "id": "tqfDF1l"
+    },
+    {
+      "content": "This too shall pass",
+      "votes": 0,
+      "id": "zGPn1h_"
+    },
+    {
+      "content": "hglkjhlkjh",
+      "votes": 0,
+      "id": "jzoaL9f"
     }
   ]
 }

@@ -1,8 +1,6 @@
 const initialState = null
 
 const notificationReducer = (state = initialState, action) => {
-    console.log('state now: ', state)
-    console.log('action', action)
     switch(action.type){
       case 'NOTIFY':
         return action.notification
@@ -12,18 +10,21 @@ const notificationReducer = (state = initialState, action) => {
     return state
   }
   
-  export const showNotification = (notification) => {
-      console.log('content in notifyCreatedBlog ', notification)
-    return {
-      type: 'NOTIFY',
-      notification
+  export const showNotification = (notification, time) => {
+    return dispatch => {
+      dispatch({
+        type: 'NOTIFY',
+        notification
+      })
+      setTimeout(() => {
+        dispatch(hideNotification())
+      }, 1000 * time)
     }
   }
   
   export const hideNotification = () => {
     return{
       type: 'CLOSE_NOTIFICATION',
-      initialState
     }
   }
 

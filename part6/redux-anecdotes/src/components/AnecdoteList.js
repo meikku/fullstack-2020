@@ -18,8 +18,7 @@ const AnecdoteList = () =>  {
 
     const voteForAnecdote = async(anecdote) => {
     dispatch(vote(anecdote))
-    dispatch(showNotification(`You voted '${anecdote.content}'`))
-    setTimeout(() => dispatch(hideNotification(null)), 5000)    
+    dispatch(showNotification(`You voted '${anecdote.content}'`), 10)    
     }
       
     return (
@@ -37,4 +36,4 @@ const AnecdoteList = () =>  {
     )
 }
 
-export default AnecdoteList
+ export default AnecdoteList
