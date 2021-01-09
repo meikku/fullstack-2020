@@ -3,7 +3,7 @@ const initialState = null
 const notificationReducer = (state = initialState, action) => {
     switch(action.type){
       case 'NOTIFY':
-        return action.notification
+        return action.data
       case 'CLOSE_NOTIFICATION':
         return initialState
     }
@@ -14,11 +14,11 @@ const notificationReducer = (state = initialState, action) => {
     return dispatch => {
       dispatch({
         type: 'NOTIFY',
-        notification
+        data: notification
       })
       setTimeout(() => {
         dispatch(hideNotification())
-      }, 1000 * time)
+      }, 500 * time)
     }
   }
   
