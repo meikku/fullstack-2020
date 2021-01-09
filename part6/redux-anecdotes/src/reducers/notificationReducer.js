@@ -10,15 +10,20 @@ const notificationReducer = (state = initialState, action) => {
     return state
   }
   
+  let timeoutID
   export const showNotification = (notification, time) => {
+    
+    if (timeoutID !== null) {
+    clearTimeout(timeoutID) }
     return dispatch => {
       dispatch({
         type: 'NOTIFY',
         data: notification
       })
-      setTimeout(() => {
+
+      timeoutID = setTimeout(() => {
         dispatch(hideNotification())
-      }, 300 * time)
+      }, 500 * time)
     }
   }
   
