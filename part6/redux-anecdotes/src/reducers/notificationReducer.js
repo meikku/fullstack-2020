@@ -18,7 +18,7 @@ const notificationReducer = (state = initialState, action) => {
       })
       setTimeout(() => {
         dispatch(hideNotification())
-      }, 500 * time)
+      }, 300 * time)
     }
   }
   

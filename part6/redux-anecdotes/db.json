@@ -37,12 +37,12 @@
     },
     {
       "content": "Less is less",
-      "votes": 55,
+      "votes": 56,
       "id": "nNOQaoH"
     },
     {
       "content": "Time is an illusion",
-      "votes": 0,
+      "votes": 1,
       "id": "V7KEnan"
     },
     {
@@ -54,6 +54,11 @@
       "content": "Time flies when coding",
       "votes": 0,
       "id": "FsdIuRe"
+    },
+    {
+      "content": "One step at a time",
+      "votes": 0,
+      "id": "IQ435Kx"
     }
   ]
 }
