@@ -12,7 +12,7 @@ import {
 const Menu = ({ anecdotes }) => {
   const match = useRouteMatch('/anecdotes/:id')
   const anecdote = match 
-  ?  anecdotes.find(anecdote => Number(anecdote.id) === Number(match.params.id))
+  ? anecdotes.find(anecdote => Number(anecdote.id) === Number(match.params.id))
   : null
 
   const padding = {
@@ -34,7 +34,7 @@ const Menu = ({ anecdotes }) => {
         <About />
       </Route>
       <Route path='/anecdotes/:id'>
-        <Anecdote anecdote={anecdote} />
+        <Anecdote anecdotes={anecdotes} />
       </Route>
       <Route path='/'>
         <AnecdoteList anecdotes={anecdotes}/>
@@ -56,8 +56,9 @@ const AnecdoteList = ({ anecdotes }) => (
   </div>
 )
 
-const Anecdote =({ anecdote }) => {
-  console.log('anecdote.content', anecdote.content)
+const Anecdote =({ anecdotes }) => {
+  const id = useParams().id
+  const anecdote = anecdotes.find(a => a.id === id)
   return (
     <div>
       <h2>{anecdote.content} by {anecdote.author}</h2>
