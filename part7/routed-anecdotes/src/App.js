@@ -6,29 +6,32 @@ import {
   Link,
   Redirect,
   useParams,
-  useRouteMatch
+  useHistory
 } from "react-router-dom"
 
-const Menu = ({ anecdotes }) => {
-  const match = useRouteMatch('/anecdotes/:id')
-  const anecdote = match 
-  ? anecdotes.find(anecdote => Number(anecdote.id) === Number(match.params.id))
-  : null
-
+const Menu = ({ anecdotes, addNew, notification }) => {
+  
   const padding = {
     paddingRight: 5
   }
+
+  const Notification = ({ notification }) => {
+    return notification
+  }
+  
   return (
     <Router>
     <div>
       <Link style={padding} to='/'>anecdotes</Link>
       <Link style={padding} to='/create'>create new</Link>
       <Link style={padding} to='/about'>about</Link>
+      <div><Notification notification={notification}/>
+      </div>
     </div>
 
     <Switch>
       <Route path='/create'>
-        <CreateNew />
+        <CreateNew addNew={addNew} />
       </Route>
       <Route path='/about'>
         <About />
@@ -91,6 +94,7 @@ const Footer = () => (
 )
 
 const CreateNew = (props) => {
+  const history = useHistory()
   const [content, setContent] = useState('')
   const [author, setAuthor] = useState('')
   const [info, setInfo] = useState('')
@@ -104,6 +108,7 @@ const CreateNew = (props) => {
       info,
       votes: 0
     })
+    history.push('/')
   }
 
   return (
@@ -148,10 +153,14 @@ const App = () => {
   ])
 
   const [notification, setNotification] = useState('')
-  
+  console.log('notification first', notification)
+
   const addNew = (anecdote) => {
     anecdote.id = (Math.random() * 10000).toFixed(0)
     setAnecdotes(anecdotes.concat(anecdote))
+    setNotification(`A new anecdote '${anecdote.content}' was added`)
+    console.log('notification in addNew', notification)
+    setTimeout(() => {setNotification('')}, 10000)
   }
   const anecdoteById = (id) =>
   anecdotes.find(a => a.id === id)
@@ -170,7 +179,7 @@ const App = () => {
   return (
     <div>
       <h1>Software anecdotes</h1>
-      <Menu anecdotes={anecdotes}/>
+      <Menu anecdotes={anecdotes} addNew={addNew} notification={notification}/>
       <Footer />
     </div>
   )
