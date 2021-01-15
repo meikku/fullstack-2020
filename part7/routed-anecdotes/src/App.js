@@ -8,7 +8,7 @@ import {
   useHistory
 } from "react-router-dom"
 
-import  { useField } from './hooks'
+import  { useField, useAnotherHook } from './hooks'
 
 const Menu = ({ anecdotes, addNew, notification }) => {
   
@@ -99,8 +99,8 @@ const CreateNew = (props) => {
   const content = useField('text')
   const author = useField('text')
   const info = useField('text')
-
-
+  const reset = useField('text')
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     props.addNew({
@@ -110,6 +110,13 @@ const CreateNew = (props) => {
       votes: 0
     })
     history.push('/')
+  }
+  
+  const handleClick = (event) => {
+    event.preventDefault()
+    content.reset()
+    author.reset()
+    info.reset()
   }
 
   return (
@@ -126,7 +133,8 @@ const CreateNew = (props) => {
           url for more info
           <input {...info} />
         </div>
-        <button>create</button>
+        <button onClick={handleSubmit}>create</button>
+        <button onClick={handleClick}>reset</button>
       </form>
     </div>
   )

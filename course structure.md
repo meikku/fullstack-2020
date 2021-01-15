@@ -170,16 +170,16 @@ TOTAL 61 DONE
 ##### D connect
 >~~6.19~~
 >~~6.20~~
->6.21 (total 125)
+>~~6.21~~ (total 125)
 
 ### PART 7
 ##### A React-router
->7.1
->7.2 -> credits 6 (127 ex)
->7.3 (total 128)
+>~~7.1~~
+>~~7.2~~ -> credits 6 (127 ex)
+>~~7.3~~ (total 128)
 ##### B Custom hooks
->7.4
->7.5
+>~~7.4~~
+>~~7.5~~
 >7.6
 >7.7
 >7.8 (total 133)
