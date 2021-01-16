@@ -179,10 +179,10 @@ TOTAL 61 DONE
 >~~7.3~~ (total 128)
 ##### B Custom hooks
 >~~7.4~~
->~~7.5~~
->7.6
->7.7
->7.8 (total 133)
+>~~7.5~~ 
+>~~7.6~~ (total 131)
+>7.7 / SKIP 
+>7.8 / SKIP 
 ##### C More about styles
 ##### D Webpack
 ##### E Class components, Miscellaneous
@@ -191,9 +191,9 @@ TOTAL 61 DONE
 >7.10
 >7.11
 >7.12
->7.13 --> credits 7 (138 ex)
+>7.13 
 >7.14
->7.15
+>7.15 --> credits 7 (138 ex)
 >7.16
 >7.17
 >7.18
