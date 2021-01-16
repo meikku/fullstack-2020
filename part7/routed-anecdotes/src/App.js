@@ -96,10 +96,9 @@ const Footer = () => (
 
 const CreateNew = (props) => {
   const history = useHistory()
-  const content = useField('text')
-  const author = useField('text')
-  const info = useField('text')
-  const reset = useField('text')
+  const { reset: resetContent, ...content } = useField('text')
+  const { reset: resetAuthor, ...author } = useField('text')
+  const { reset: resetInfo, ...info } = useField('text')
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -112,17 +111,17 @@ const CreateNew = (props) => {
     history.push('/')
   }
   
-  const handleClick = (event) => {
+  const handleReset = (event) => {
     event.preventDefault()
-    content.reset()
-    author.reset()
-    info.reset()
+    resetContent()
+    resetAuthor()
+    resetInfo()
   }
 
   return (
     <div>
       <h2>create a new anecdote</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} onReset={handleReset}>
         <div>
           content
           <input {...content} />
@@ -134,7 +133,7 @@ const CreateNew = (props) => {
           <input {...info} />
         </div>
         <button onClick={handleSubmit}>create</button>
-        <button onClick={handleClick}>reset</button>
+        <button onClick={handleReset}>reset</button>
       </form>
     </div>
   )
