@@ -5,13 +5,17 @@ import loginService from './services/login'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
 import Togglable from './components/Togglable'
+import { Table } from 'react-bootstrap'
+import { useDispatch } from 'react-redux'
+import { showNotification, hideNotification } from './reducers/notificationReducer'
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
-  const [ notification, setNotification ] = useState(null)
+  // const [ notification, setNotification ] = useState(null)
   const [ user, setUser ] = useState(null)
+  const dispatch = useDispatch()
 
   console.log('user', user)
 
@@ -35,10 +39,11 @@ const App = () => {
   }, [])
 
   const notifyWith = (message) => {
-    setNotification({ message })
-    setTimeout(() => {
-      setNotification(null)
-    }, 5000)
+    console.log('message', message)
+    dispatch(showNotification({ message }))
+    setTimeout(() => 
+      dispatch(hideNotification(null))
+    , 5000)
   }
 
   const addBlog = (blogObject) => {
@@ -57,7 +62,7 @@ const App = () => {
       .remove(id)
       .then(() => {
         setBlogs(blogs.filter(p => p.id !== id))
-        notifyWith(`Remove blog ${blogToDelete.title} `)
+        notifyWith(`Removed blog ${blogToDelete.title} `)
       })
   }
 
@@ -138,12 +143,11 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Notification notification={notification} />
+    <div className='container'>
+      <Notification />
       {user === null ?
         loginForm() :
         <div>
-          <h2>blogs</h2>
           <p>{user.name} is logged in
             <button onClick={logOut}>
         logout
@@ -151,7 +155,7 @@ const App = () => {
           {blogForm()}
         </div>
       }
-
+      <h2>Blogs</h2>
       {sortedBlog(blogs).map(blog =>
         <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
       )}
