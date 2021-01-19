@@ -39,11 +39,11 @@ const App = () => {
   }, [])
 
   const notifyWith = (message) => {
-    console.log('message', message)
-    dispatch(showNotification({ message }))
+    console.log('message:', message)
+    dispatch(showNotification({ message }, 100))
     setTimeout(() => 
-      dispatch(hideNotification(null))
-    , 5000)
+      dispatch(hideNotification(null)), 500
+    )
   }
 
   const addBlog = (blogObject) => {

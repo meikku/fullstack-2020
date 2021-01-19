@@ -23,14 +23,13 @@ export const showNotification = (notification, time) => {
             })
         timeoutID = setTimeout(() => {
             dispatch(hideNotification())
-        }, 500 * time)
+        }, 1000 * time)
     }
 }
 
 export const hideNotification = () => {
     return{
         type: 'CLOSE_NOTIFICATION',
-        initialState
     }
 }
 
