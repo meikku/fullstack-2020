@@ -5,10 +5,10 @@ import loginService from './services/login'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
 import Togglable from './components/Togglable'
-import { useDispatch, useStore } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { showNotification, hideNotification } from './reducers/notificationReducer'
 import { BrowserRouter as Router, 
-Switch, Route } from 'react-router-dom'
+Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
@@ -16,6 +16,10 @@ const App = () => {
   const [ password, setPassword ] = useState('')
   const [ user, setUser ] = useState(null)
   const dispatch = useDispatch()
+
+  const padding = {
+    padding: 5
+  }
 
   const blogFormRef = useRef()
 
@@ -142,18 +146,23 @@ const App = () => {
 
   return (
     <Router>
-      <h2>Blogs</h2>
-      <Notification />
-          {user === null ?
+      <div>
+        <Link style={padding} to="/">home</Link>
+        <Link style={padding} to="/blogs">blogs</Link>
+        <Link style={padding} to="/users">users</Link>
+        {user === null ?
           loginForm() :
-          <div>
-            <p>{user.name} is logged in
+            <span>{user.name} is logged in
               <button onClick={logOut}>
               logout
               </button>
-            </p>
-          </div>
+            </span>
           }
+      </div>
+
+      <h2>Blogs</h2>
+      <Notification />
+          
       <Switch>
         <Route path='/blogs'>
           {user !== null ? blogForm() : null}
