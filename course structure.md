@@ -180,14 +180,14 @@ TOTAL 61 DONE
 ##### B Custom hooks
 >~~7.4~~
 >~~7.5~~ 
->~~7.6~~ (total 131)
+>~~7.6~~ 
 >7.7 / SKIP 
 >7.8 / SKIP 
 ##### C More about styles
 ##### D Webpack
 ##### E Class components, Miscellaneous
 ##### F Exercises: extending the bloglist
->7.9
+>~~7.9~~ (total 132)
 >7.10
 >7.11
 >7.12

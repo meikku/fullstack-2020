@@ -5,19 +5,17 @@ import loginService from './services/login'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
 import Togglable from './components/Togglable'
-import { Table } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useStore } from 'react-redux'
 import { showNotification, hideNotification } from './reducers/notificationReducer'
+import { BrowserRouter as Router, 
+Switch, Route } from 'react-router-dom'
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
-  // const [ notification, setNotification ] = useState(null)
   const [ user, setUser ] = useState(null)
   const dispatch = useDispatch()
-
-  console.log('user', user)
 
   const blogFormRef = useRef()
 
@@ -143,23 +141,31 @@ const App = () => {
   }
 
   return (
-    <div className='container'>
-      <Notification />
-      {user === null ?
-        loginForm() :
-        <div>
-          <p>{user.name} is logged in
-            <button onClick={logOut}>
-        logout
-            </button></p>
-          {blogForm()}
-        </div>
-      }
+    <Router>
       <h2>Blogs</h2>
-      {sortedBlog(blogs).map(blog =>
-        <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
-      )}
-    </div>
+      <Notification />
+          {user === null ?
+          loginForm() :
+          <div>
+            <p>{user.name} is logged in
+              <button onClick={logOut}>
+              logout
+              </button>
+            </p>
+          </div>
+          }
+      <Switch>
+        <Route path='/blogs'>
+          {user !== null ? blogForm() : null}
+          {sortedBlog(blogs).map(blog =>
+          <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
+          )}
+        </Route>
+        <Route path='/users'>
+          <h2>Users</h2>
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
