@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showNotification, hideNotification } from './reducers/notificationReducer'
 import { initializeUsers } from './reducers/userReducer'
 import { BrowserRouter as Router, 
-Switch, Route, Link } from 'react-router-dom'
+Switch, Route, Link, useParams, useRouteMatch } from 'react-router-dom'
 import { 
   Container,
   Table,
@@ -163,6 +163,23 @@ const App = () => {
     return blogs.sort((a, b) => b.likes - a.likes)
   }
 
+  const IndividualUser = ({ users }) => {
+    const id = useParams().id
+    const individualUser = users.find(n => n.id === id)
+    if (!individualUser) {
+      return null
+    }
+    return (
+      <div> 
+        <h2>{individualUser.username}</h2>
+        <p><strong>added blogs</strong></p>
+        {individualUser.blogs.map(blog => 
+        <li key={blog.id}>{blog.title}</li>
+        )}
+      </div>
+    )
+  }
+
   return (
     <Container>
     <Router>
@@ -171,7 +188,7 @@ const App = () => {
         <Link style={padding} to="/users">users</Link>
         {user === null ?
           loginForm() :
-            <span>{user.username} is logged in
+            <span>{user.username} is logged in 
               <button onClick={logOut}>
               logout
               </button>
@@ -187,6 +204,9 @@ const App = () => {
           <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
           )}
         </Route>
+        <Route path='/users/:id'>
+          <IndividualUser users={users} />
+        </Route>
         <Route path='/users'>
           <h2>Users</h2>
           <TableContainer component={Paper}>
@@ -194,7 +214,7 @@ const App = () => {
             <TableBody>
               <TableRow><TableCell></TableCell><TableCell><h4>blogs created</h4></TableCell></TableRow>
           {users.map(user =>
-          <TableRow key={user.id}><TableCell>{user.username}</TableCell><TableCell>{user.blogs.length}</TableCell>
+           <TableRow key={user.id}><TableCell><Link to={`/users/${user.id}`}>{user.username}</Link></TableCell><TableCell>{user.blogs.length}</TableCell>
            </TableRow>
           )}
           </TableBody>

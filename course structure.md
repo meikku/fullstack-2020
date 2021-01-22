@@ -187,17 +187,17 @@ TOTAL 61 DONE
 ##### D Webpack
 ##### E Class components, Miscellaneous
 ##### F Exercises: extending the bloglist
->~~7.9~~ (total 132)
+>~~7.9~~ 
 >7.10
 >7.11
 >7.12
->7.13 
->7.14
->7.15 --> credits 7 (138 ex)
+>~~7.13~~
+>~~7.14~~
+>7.15 
 >~~7.16~~
 >7.17
 >7.18
->7.19
+>~~7.19~~ (total 136 done)
 >7.20
 >7.21 (total 146)
 >
