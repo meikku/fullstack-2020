@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { showNotification, hideNotification } from './reducers/notificationReducer'
 import { initializeUsers } from './reducers/userReducer'
 import { BrowserRouter as Router, 
-Switch, Route, Link, useParams, useRouteMatch } from 'react-router-dom'
+Switch, Route, Link, useParams } from 'react-router-dom'
 import { 
   Container,
   Table,
@@ -19,6 +19,7 @@ import {
   TableRow,
   Paper,
  } from '@material-ui/core'
+ import { Form, Button } from 'react-bootstrap'
 
 
 
@@ -99,7 +100,6 @@ const App = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault()
-    console.log('logging in with', username, password)
     try {
       const user = await loginService.login({
         username, password,
@@ -127,7 +127,7 @@ const App = () => {
   const loginForm = () => (
     <div>
       <h2>Log in to application</h2>
-      <form onSubmit={handleLogin}>
+      <Form onSubmit={handleLogin}>
         <div>
         username
           <input
@@ -148,8 +148,8 @@ const App = () => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <button id='login' type="submit">login</button>
-      </form>
+        <Button variant='success' id='login' type="submit">login</Button>
+      </Form>
     </div>
   )
 
@@ -189,11 +189,11 @@ const App = () => {
         {user === null ?
           loginForm() :
             <span>{user.username} is logged in 
-              <button onClick={logOut}>
+              <Button variant='primary' onClick ={logOut}>
               logout
-              </button>
+              </Button>
             </span>
-          }
+          } 
       </div>
       <Notification />
       <Switch>
