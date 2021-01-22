@@ -5,10 +5,22 @@ import loginService from './services/login'
 import Notification from './components/Notification'
 import BlogForm from './components/BlogForm'
 import Togglable from './components/Togglable'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { showNotification, hideNotification } from './reducers/notificationReducer'
+import { initializeUsers } from './reducers/userReducer'
 import { BrowserRouter as Router, 
 Switch, Route, Link } from 'react-router-dom'
+import { 
+  Container,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableRow,
+  Paper,
+ } from '@material-ui/core'
+
+
 
 const App = () => {
   const [ blogs, setBlogs ] = useState([])
@@ -16,12 +28,18 @@ const App = () => {
   const [ password, setPassword ] = useState('')
   const [ user, setUser ] = useState(null)
   const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initializeUsers())
+  }, [dispatch])
+
+  const users = useSelector(state => state.user)
+  console.log('users', users)
 
   const padding = {
     padding: 5
   }
 
-  const blogFormRef = useRef()
+  const blogFormRef = useRef() 
 
   useEffect(() => {
     blogService
@@ -31,6 +49,7 @@ const App = () => {
       )
   }, [])
 
+  
   useEffect(() => {
     const loggedUserJSON = window.localStorage.getItem('loggedBlogappUser')
     if (loggedUserJSON) {
@@ -145,26 +164,24 @@ const App = () => {
   }
 
   return (
+    <Container>
     <Router>
       <div>
-        <Link style={padding} to="/">home</Link>
         <Link style={padding} to="/blogs">blogs</Link>
         <Link style={padding} to="/users">users</Link>
         {user === null ?
           loginForm() :
-            <span>{user.name} is logged in
+            <span>{user.username} is logged in
               <button onClick={logOut}>
               logout
               </button>
             </span>
           }
       </div>
-
-      <h2>Blogs</h2>
       <Notification />
-          
       <Switch>
         <Route path='/blogs'>
+        <h2>Blogs</h2>
           {user !== null ? blogForm() : null}
           {sortedBlog(blogs).map(blog =>
           <Blog key={blog.id} blog={blog} changeLikes={changeLikes} removeBlog={removeBlog} user={user}/>
@@ -172,10 +189,22 @@ const App = () => {
         </Route>
         <Route path='/users'>
           <h2>Users</h2>
+          <TableContainer component={Paper}>
+          <Table>
+            <TableBody>
+              <TableRow><TableCell></TableCell><TableCell><h4>blogs created</h4></TableCell></TableRow>
+          {users.map(user =>
+          <TableRow key={user.id}><TableCell>{user.username}</TableCell><TableCell>{user.blogs.length}</TableCell>
+           </TableRow>
+          )}
+          </TableBody>
+          </Table>
+          </TableContainer>
         </Route>
       </Switch>
     </Router>
+    </Container>
   )
-}
+} 
 
 export default App
